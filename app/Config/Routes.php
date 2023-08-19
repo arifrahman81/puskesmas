@@ -11,7 +11,7 @@ $routes = Services::routes();
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Pages');
+$routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -19,7 +19,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
+$routes->setAutoRoute(true);
 
 /*
  * --------------------------------------------------------------------
@@ -27,27 +27,51 @@ $routes->set404Override();
  * --------------------------------------------------------------------
  */
 
+$routes->get('create-db', function () {
+    $forge = \Config\Database::forge();
+    if ($forge->createDatabase('laporkes')) {
+        echo 'Database created!';
+    }
+});
+
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Pages::index');
-$routes->get('/Pages/index', 'Pages::index');
-$routes->get('/Pages/masyarakat', 'Pages::masyarakat');
-$routes->get('/Pages/laporan', 'Pages::laporan');
-$routes->get('/Pages/status', 'Pages::status');
-$routes->get('/Pages/daftar_antrian', 'Pages::daftar_antrian');
-$routes->get('/Pages/login_faskes', 'Pages::login_faskes');
-$routes->get('/Pages/faskes', 'Pages::faskes');
-$routes->get('/Pages/form_faskes', 'Pages::form_faskes');
-$routes->get('/Pages/faskes_pkm', 'Pages::faskes_pkm');
-$routes->get('/Pages/login_pkm', 'Pages::login_pkm');
-$routes->get('/Pages/puskesmas', 'Pages::puskesmas');
-$routes->get('/Pages/laporan_pkm', 'Pages::laporan_pkm');
-$routes->get('/Pages/laporan_puskesmas', 'Pages::laporan_puskesmas');
-$routes->get('/Pages/update_pkm', 'Pages::update_pkm');
-$routes->get('/Pages/login_dinkes', 'Pages::login_dinkes');
-$routes->get('/Pages/dinkes', 'Pages::dinkes');
-$routes->get('/Pages/kondisi_pkm', 'Pages::kondisi_pkm');
-$routes->get('/Pages/data_penyakit', 'Pages::penyakit');
+$routes->get('/', 'Home::index');
+$routes->get('/Home/index', 'Home::index');
+
+// Masyarakat
+$routes->get('/Masyarakat/masyarakat', 'Masyarakat::masyarakat');
+$routes->get('/Masyarakat/laporan', 'Masyarakat::laporanMasyarakat');
+$routes->get('/Masyarakat/status', 'Masyarakat::status');
+$routes->get('/Masyarakat/daftar_antrian', 'Masyarakat::daftar_antrian');
+
+// Authentications
+$routes->get('/Auth/login_faskes', 'Auth::login_faskes');
+$routes->get('/Auth/login_pkm', 'Auth::login_pkm');
+$routes->get('/Auth/login_dinkes', 'Auth::login_dinkes');
+
+// Fasilitas Kesehatan
+$routes->get('/Faskes/faskes', 'Faskes::faskes');
+$routes->get('/Faskes/form_faskes', 'Faskes::form_faskes');
+$routes->get('/Faskes/faskes_pkm', 'Faskes::faskes_pkm');
+
+// Puskesmas
+$routes->get('/Puskesmas/puskesmas', 'Puskesmas::puskesmas');
+$routes->get('/Puskesmas/laporan_pkm', 'Puskesmas::laporan_pkm');
+$routes->get('/Puskesmas/laporan_puskesmas', 'Puskesmas::laporan_puskesmas');
+$routes->get('/Puskesmas/update_pkm', 'Puskesmas::update_pkm');
+
+// Dinas Kesehatan
+$routes->get('/Dinkes/dinkes', 'Dinkes::dinkes');
+$routes->get('/Dinkes/kondisi_pkm', 'Dinkes::kondisi_pkm');
+$routes->get('/Dinkes/data_penyakit', 'Dinkes::penyakit');
+
+
+
+
+
+
+
 
 /*
  * --------------------------------------------------------------------

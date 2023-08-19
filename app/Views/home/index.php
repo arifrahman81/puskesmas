@@ -19,7 +19,7 @@
                             <i class="fas fa-stethoscope fa-3x mb-3"></i>
                             <h4 class="card-title">Masyarakat Biasa</h4>
                             <p class="card-text">Dapatkan konsultasi medis dari tenaga ahli kami.</p>
-                            <a href="<?= base_url('/Pages/masyarakat'); ?>" class="btn btn-primary">Selengkapnya</a>
+                            <a href="<?= base_url('/Masyarakat/masyarakat'); ?>" class="btn btn-primary">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                             <i class="fas fa-heartbeat fa-3x mb-3"></i>
                             <h4 class="card-title">Staf Fasilitas Kesehatan</h4>
                             <p class="card-text">Lakukan pemeriksaan kesehatan secara berkala untuk mencegah penyakit.</p>
-                            <a href="<?= base_url('/Pages/login_faskes'); ?>" class="btn btn-primary">Selengkapnya</a>
+                            <a href="<?= base_url('/Auth/login_faskes'); ?>" class="btn btn-primary">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                             <i class="fas fa-hospital fa-3x mb-3"></i>
                             <h4 class="card-title">Staf Puskesmas</h4>
                             <p class="card-text">Kami menyediakan fasilitas rawat inap untuk pasien yang membutuhkan.</p>
-                            <a href="<?= base_url('/Pages/login_pkm'); ?>" class="btn btn-primary">Selengkapnya</a>
+                            <a href="<?= base_url('/Auth/login_pkm'); ?>" class="btn btn-primary">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                             <i class="fas fa-medkit fa-3x mb-3"></i>
                             <h4 class="card-title">Staf Dinas Kesehatan</h4>
                             <p class="card-text">Dapatkan obat dan alat kesehatan berkualitas dari kami.</p>
-                            <a href="<?= base_url('/Pages/login_dinkes'); ?>" class="btn btn-primary">Selengkapnya</a>
+                            <a href="<?= base_url('/Auth/login_dinkes'); ?>" class="btn btn-primary">Selengkapnya</a>
                         </div>
                     </div>
                 </div>

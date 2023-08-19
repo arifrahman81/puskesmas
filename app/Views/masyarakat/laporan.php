@@ -4,7 +4,18 @@
 <div class="container">
     <div class="row pt-5 d-flex justify-content-center">
         <div class="col-lg-7 border border-2  border-primary p-5">
-            <form action="" method="POST" autocomplete="off">
+        <?php if (session()->getFlashdata('pesan')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('pesan'); ?>
+                </div>
+            <?php endif; ?>
+            <?php if (session()->getFlashdata('error')) : ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('error'); ?>
+                </div>
+            <?php endif; ?>
+            <form action="masyarakat/addLaporan" method="POST" autocomplete="off">
+            <?= csrf_field(); ?>
                 <h3 class="mb-5">Laporan Kesehatan</h3>
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama</label>

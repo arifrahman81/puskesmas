@@ -49,6 +49,42 @@
 
         }
 
+        .masyarakat {
+            background-image: url('/assets/img/bg-hero-m.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3e3b3b;
+            text-align: center;
+        }
+
+        .faskes {
+            background-image: url('/assets/img/bg-hero-f.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3e3b3b;
+            text-align: center;
+        }
+        
+        .dinkes {
+            background-image: url('/assets/img/bg-hero-d.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3e3b3b;
+            text-align: center;
+        }
+
         .navbar {
             font-family: 'Roboto', sans-serif;
         }

@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <!-- Hero Section -->
-<section class="jumbotron text-center">
+<section class="masyarakat text-center">
     <div class="container">
         <h1>Layanan Laporan Kesehatan</h1>
         <p>Temukan layanan kesehatan terbaik untuk Anda</p>
@@ -19,7 +19,7 @@
                         <i class="fas fa-stethoscope fa-3x mb-3"></i>
                         <h4 class="card-title">Masyarakat Biasa</h4>
                         <p class="card-text">Melaporkan kondisi kesehatan di sekitar saya</p>
-                        <a href="<?= base_url('/Pages/laporan'); ?>" class="btn btn-primary">Selengkapnya</a>
+                        <a href="<?= base_url('/Masyarakat/laporan'); ?>" class="btn btn-primary">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                         <i class="fas fa-stethoscope fa-3x mb-3"></i>
                         <h4 class="card-title">Masyarakat Biasa</h4>
                         <p class="card-text">Melihat status pelaporan saya</p>
-                        <a href="<?= base_url('/Pages/status'); ?>" class="btn btn-primary">Selengkapnya</a>
+                        <a href="<?= base_url('/Masyarakat/status'); ?>" class="btn btn-primary">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                         <i class="fas fa-stethoscope fa-3x mb-3"></i>
                         <h4 class="card-title">Masyarakat Biasa</h4>
                         <p class="card-text">Mendaftar antrian untuk berobat ke puskesmas</p>
-                        <a href="<?= base_url('/Pages/daftar_antrian'); ?>" class="btn btn-primary">Selengkapnya</a>
+                        <a href="<?= base_url('/Masyarakat/daftar_antrian'); ?>" class="btn btn-primary">Selengkapnya</a>
                     </div>
                 </div>
             </div>

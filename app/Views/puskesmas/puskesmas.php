@@ -19,7 +19,7 @@
                         <i class="fas fa-hospital fa-3x mb-3"></i>
                         <h4 class="card-title">Puskesmas</h4>
                         <p class="card-text">Mengecek laporan masyarakat dan laporan Faskes</p>
-                        <a href="<?= base_url('/Pages/laporan_pkm'); ?>" class="btn btn-primary">Selengkapnya</a>
+                        <a href="<?= base_url('/Puskesmas/laporan_pkm'); ?>" class="btn btn-primary">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                         <i class="fas fa-hospital fa-3x mb-3"></i>
                         <h4 class="card-title">Puskesmas</h4>
                         <p class="card-text">Mengupdate informasi baru di aplikasi tentang kondisi terkini Puskesmas</p>
-                        <a href="<?= base_url('/Pages/update_pkm'); ?>" class="btn btn-primary">Selengkapnya</a>
+                        <a href="<?= base_url('/Puskesmas/update_pkm'); ?>" class="btn btn-primary">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                         <i class="fas fa-hospital fa-3x mb-3"></i>
                         <h4 class="card-title">Puskesmas</h4>
                         <p class="card-text">Memasukkan laporan pasien ke dalam database</p>
-                        <a href="<?= base_url('/Pages/laporan_puskesmas'); ?>" class="btn btn-primary">Selengkapnya</a>
+                        <a href="<?= base_url('/Puskesmas/laporan_puskesmas'); ?>" class="btn btn-primary">Selengkapnya</a>
                     </div>
                 </div>
             </div>
