@@ -40,7 +40,7 @@
             background-image: url('/assets/img/bg-hero.jpg');
             background-size: cover;
             background-position: center;
-            height: 500px;
+            height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -53,7 +53,7 @@
             background-image: url('/assets/img/bg-hero-m.jpg');
             background-size: cover;
             background-position: center;
-            height: 500px;
+            height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -72,12 +72,24 @@
             color: #3e3b3b;
             text-align: center;
         }
-        
+
+        .puskesmas {
+            background-image: url('/assets/img/bg-hero-p.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3e3b3b;
+            text-align: center;
+        }
+
         .dinkes {
             background-image: url('/assets/img/bg-hero-d.jpg');
             background-size: cover;
             background-position: center;
-            height: 700px;
+            height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -92,72 +104,72 @@
 </head>
 
 <body>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <div class="container">
-                <img src="/assets/img/logo1.png" alt="Logo" height="35">
-                <a class="navbar-brand" href="<?= base_url('/'); ?>">LaporKES</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="<?= base_url('/'); ?>">Beranda</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <img src="/assets/img/logo1.png" alt="Logo" height="35">
+            <a class="navbar-brand" href="<?= base_url('/'); ?>">LaporKES</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<?= base_url('/'); ?>">Beranda</a>
 
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tentang Kami</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Layanan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Kontak</a>
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kontak</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <?= $this->renderSection('content'); ?>
+    <?= $this->renderSection('content'); ?>
 
-        <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container py-5">
-                <div class="row g-5 d-flex justify-content-center">
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Title</h4>
-                        <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Beranda</a>
-                        <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Tentang Kami</a>
-                        <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Layanan</a>
-                        <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Kontak</a>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>JL. Jend Urip Sumoharjo, No. 269, Makasar, Sinrijala, Panakkukang, Makassar City, South Sulawesi 90232</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0411453486</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>wwwlcfcom8@gmail.com</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
-                        <h5 class="text-light fw-normal">Monday - Saturday</h5>
-                        <p>08AM - 04PM</p>
-                    </div>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5 d-flex justify-content-center">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Title</h4>
+                    <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Beranda</a>
+                    <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Tentang Kami</a>
+                    <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Layanan</a>
+                    <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Kontak</a>
                 </div>
-            </div>
-            <div class="container">
-                <div class="copyright">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-6 text-center mb-3 mb-md-0">&copy; <a class="border-bottom" href="#">LaporKES 2023</a>, All Right Reserved.</div>
-                    </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>JL. Jend Urip Sumoharjo, No. 269, Makasar, Sinrijala, Panakkukang, Makassar City, South Sulawesi 90232</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0411453486</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>wwwlcfcom8@gmail.com</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
+                    <h5 class="text-light fw-normal">Monday - Saturday</h5>
+                    <p>08AM - 04PM</p>
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
+        <div class="container">
+            <div class="copyright">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6 text-center mb-3 mb-md-0">&copy; <a class="border-bottom" href="#">LaporKES 2023</a>, All Right Reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
 
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

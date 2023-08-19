@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 <!-- Hero Section -->
-<section class="jumbotron text-center">
+<section class="puskesmas text-center">
     <div class="container">
         <h1>Layanan Laporan Kesehatan</h1>
         <p>Temukan layanan kesehatan terbaik untuk Anda</p>
