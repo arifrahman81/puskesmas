@@ -10,16 +10,16 @@
     </section>
 
     <!-- Layanan Section -->
-    <section class="mx-auto">
+    <section class="mx-auto p-5">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-3 mb-4">
                     <div class="card h-100">
                         <div class="card-body text-center">
                             <i class="fas fa-stethoscope fa-3x mb-3"></i>
                             <h4 class="card-title">Masyarakat Biasa</h4>
                             <p class="card-text">Dapatkan konsultasi medis dari tenaga ahli kami.</p>
-                            <a href="<?= base_url('/Masyarakat/masyarakat'); ?>" class="btn btn-primary">Selengkapnya</a>
+                            <a href="<?= base_url('/Masyarakat/masyarakat'); ?>" class="btn btn-success">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -27,9 +27,9 @@
                     <div class="card h-100">
                         <div class="card-body text-center">
                             <i class="fas fa-heartbeat fa-3x mb-3"></i>
-                            <h4 class="card-title">Staf Fasilitas Kesehatan</h4>
+                            <h4 class="card-title">Fasilitas Kesehatan</h4>
                             <p class="card-text">Lakukan pemeriksaan kesehatan secara berkala untuk mencegah penyakit.</p>
-                            <a href="<?= base_url('/Auth/login_faskes'); ?>" class="btn btn-primary">Selengkapnya</a>
+                            <a href="<?= base_url('/Auth/login_faskes'); ?>" class="btn btn-success">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -37,9 +37,9 @@
                     <div class="card h-100">
                         <div class="card-body text-center">
                             <i class="fas fa-hospital fa-3x mb-3"></i>
-                            <h4 class="card-title">Staf Puskesmas</h4>
+                            <h4 class="card-title">Puskesmas</h4>
                             <p class="card-text">Kami menyediakan fasilitas rawat inap untuk pasien yang membutuhkan.</p>
-                            <a href="<?= base_url('/Auth/login_pkm'); ?>" class="btn btn-primary">Selengkapnya</a>
+                            <a href="<?= base_url('/Auth/login_pkm'); ?>" class="btn btn-success">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -47,9 +47,9 @@
                     <div class="card h-100">
                         <div class="card-body text-center">
                             <i class="fas fa-medkit fa-3x mb-3"></i>
-                            <h4 class="card-title">Staf Dinas Kesehatan</h4>
+                            <h4 class="card-title">Dinas Kesehatan</h4>
                             <p class="card-text">Dapatkan obat dan alat kesehatan berkualitas dari kami.</p>
-                            <a href="<?= base_url('/Auth/login_dinkes'); ?>" class="btn btn-primary">Selengkapnya</a>
+                            <a href="<?= base_url('/Auth/login_dinkes'); ?>" class="btn btn-success">Selengkapnya</a>
                         </div>
                     </div>
                 </div>

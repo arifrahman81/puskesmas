@@ -39,8 +39,9 @@
         .jumbotron {
             background-image: url('/assets/img/bg-hero.jpg');
             background-size: cover;
+            object-fit: fill;
             background-position: center;
-            height: 600px;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -52,8 +53,9 @@
         .masyarakat {
             background-image: url('/assets/img/bg-hero-m.jpg');
             background-size: cover;
+            object-fit: fill;
             background-position: center;
-            height: 600px;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -64,8 +66,9 @@
         .faskes {
             background-image: url('/assets/img/bg-hero-f.jpg');
             background-size: cover;
+            object-fit: fill;
             background-position: center;
-            height: 600px;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -76,8 +79,9 @@
         .puskesmas {
             background-image: url('/assets/img/bg-hero-p.jpg');
             background-size: cover;
+            object-fit: fill;
             background-position: center;
-            height: 600px;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -88,8 +92,9 @@
         .dinkes {
             background-image: url('/assets/img/bg-hero-d.jpg');
             background-size: cover;
+            object-fit: fill;
             background-position: center;
-            height: 600px;
+            height: 500px;
             display: flex;
             align-items: center;
             justify-content: center;
