@@ -66,6 +66,10 @@ $routes->get('/Dinkes/dinkes', 'Dinkes::dinkes');
 $routes->get('/Dinkes/kondisi_pkm', 'Dinkes::kondisi_pkm');
 $routes->get('/Dinkes/data_penyakit', 'Dinkes::penyakit');
 
+// Admin
+$routes->get('/Admin/admin', 'Admin::admin');
+
+
 
 
 
