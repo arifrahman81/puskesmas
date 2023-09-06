@@ -8,4 +8,5 @@ class Admin extends BaseController
     {
         return view('admin/admin');
     }
+
 }

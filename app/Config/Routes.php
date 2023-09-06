@@ -68,6 +68,7 @@ $routes->get('/Dinkes/data_penyakit', 'Dinkes::penyakit');
 
 // Admin
 $routes->get('/Admin/admin', 'Admin::admin');
+$routes->get('/Admin/login', 'Admin::login');
 
 
 

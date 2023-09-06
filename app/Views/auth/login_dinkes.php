@@ -1,11 +1,12 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
+
 <div class="container-fluid py-5 bg-dark mb-5"></div>
 <div class="container">
     <div class="row d-flex justify-content-center mt-5">
         <div class="col-lg-6 border border-warning p-5">
             <h2 class="mb-3">Masukkan e-mail dan password anda
-                (DINKES)
+                (FASKES)
             </h2>
             <form action="<?= base_url('') ?> " method="post">
                 <?= csrf_field(); ?>
