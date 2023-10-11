@@ -2,12 +2,7 @@
 
 <?= $this->section('content'); ?>
 <!-- Hero Section -->
-<section class="masyarakat text-center">
-    <div class="container">
-        <!-- <h1>Layanan Laporan Kesehatan</h1>
-        <p>Temukan layanan kesehatan terbaik untuk Anda</p> -->
-    </div>
-</section>
+
 
 <!-- Layanan Section -->
 <section class="mx-auto p-5">
@@ -18,7 +13,7 @@
                     <div class="card-body text-center">
                         <i class="fas fa-stethoscope fa-3x mb-3"></i>
                         <h5 class="card-text">Melaporkan kondisi kesehatan di sekitar saya</h5>
-                        <a href="<?= base_url('/Masyarakat/laporan'); ?>" class="btn btn-success">Selengkapnya</a>
+                        <a href="<?= base_url('Masyarakat/laporanMasyarakat'); ?>" class="btn btn-success">Selengkapnya</a>
                     </div>
                 </div>
             </div>

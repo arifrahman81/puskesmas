@@ -13,7 +13,9 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
+        rel="stylesheet" />
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
@@ -30,98 +32,24 @@
     <!-- Template Stylesheet -->
     <link href="<?= base_url('assets/css/style.css'); ?>" rel="stylesheet" />
 
-    <!-- Custom CSS -->
-    <style>
-        body {
-            padding-top: 50px;
-        }
-
-        .jumbotron {
-            background-image: url('/assets/img/bg-hero.jpg');
-            background-size: cover;
-            object-fit: fill;
-            background-position: center;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #3e3b3b;
-            text-align: center;
-
-        }
-
-        .masyarakat {
-            background-image: url('/assets/img/bg-hero-m.jpg');
-            background-size: cover;
-            object-fit: fill;
-            background-position: center;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #3e3b3b;
-            text-align: center;
-        }
-
-        .faskes {
-            background-image: url('/assets/img/bg-hero-f.jpg');
-            background-size: cover;
-            object-fit: fill;
-            background-position: center;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #3e3b3b;
-            text-align: center;
-        }
-
-        .puskesmas {
-            background-image: url('/assets/img/bg-hero-p.jpg');
-            background-size: cover;
-            object-fit: fill;
-            background-position: center;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #3e3b3b;
-            text-align: center;
-        }
-
-        .dinkes {
-            background-image: url('/assets/img/bg-hero-d.jpg');
-            background-size: cover;
-            object-fit: fill;
-            background-position: center;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #3e3b3b;
-            text-align: center;
-        }
-
-        .navbar {
-            font-family: 'Roboto', sans-serif;
-        }
-    </style>
 </head>
 
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <img src="/assets/img/logo1.png" alt="Logo" height="35">
-            <a class="navbar-brand" href="<?= base_url('/'); ?>">LaporKES</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="<?= base_url('/'); ?>">
+                <img src="<?= base_url('/assets/img/logo2.png') ?> " alt="Logo" height="45">
+                <span>LaporKES</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="<?= base_url('/'); ?>">Beranda</a>
-
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Tentang Kami</a>
@@ -130,12 +58,24 @@
                         <a class="nav-link" href="#">Layanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= base_url('Admin/admin'); ?>">Login</a>
+                        <a class="nav-link" href="<?= base_url('Auth/login'); ?>">Login</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <div class="container-fluid py-5 bg-dark hero-header mb-5">
+        <div class="container my-5 py-5">
+            <div class="row align-items-center g-5">
+                <div class="text-center">
+                    <h1 class="display-5 text-white animated slideInDown">Layanan Laporan Kesehatan</h1>
+                    <br>
+                    <h4 class="text-primary animated slideInDown">Temukan layanan kesehatan terbaik untuk
+                        Anda</h4>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?= $this->renderSection('content'); ?>
 
@@ -152,7 +92,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>JL. Jend Urip Sumoharjo, No. 269, Makasar, Sinrijala, Panakkukang, Makassar City, South Sulawesi 90232</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>JL. Jend Urip Sumoharjo, No. 269, Makasar,
+                        Sinrijala, Panakkukang, Makassar City, South Sulawesi 90232</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0411453486</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>wwwlcfcom8@gmail.com</p>
                 </div>
@@ -166,7 +107,8 @@
         <div class="container">
             <div class="copyright">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-md-6 text-center mb-3 mb-md-0">&copy; <a class="border-bottom" href="#">LaporKES 2023</a>, All Right Reserved.</div>
+                    <div class="col-md-6 text-center mb-3 mb-md-0">&copy; <a class="border-bottom" href="#">LaporKES
+                            2023</a>, All Right Reserved.</div>
                 </div>
             </div>
         </div>
@@ -192,6 +134,25 @@
 
     <!-- Template Javascript -->
     <script src="<?= base_url('assets/js/main.js'); ?>"></script>
+
+    <script>
+    function togglePasswordVisibility() {
+        const passwordField = document.getElementById('passwordField');
+        const eyeIcon = document.getElementById('eyeIcon');
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            eyeIcon.classList.remove('bi-eye');
+            eyeIcon.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            eyeIcon.classList.remove('bi-eye-slash');
+            eyeIcon.classList.add('bi-eye');
+        }
+    }
+    </script>
+
+
 </body>
 
 </html>

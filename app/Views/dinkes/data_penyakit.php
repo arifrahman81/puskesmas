@@ -1,32 +1,90 @@
-<?= $this->extend('layout/template'); ?>
+<?= $this->extend('layout/Dinkes/templates'); ?>
 
 <?= $this->section('content'); ?>
-<div class="container">
-    <div class="row pt-5 d-flex justify-content-center">
-        <div class="col-lg-7 border border-2  border-primary p-5">
-            <form action="" method="POST" autocomplete="off">
-                <h3 class="mb-5">Mencari data penyakit</h3>
-                <div class="mb-3">
-                    <label for="nama" class="form-label">Kota Anda</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Tulis Nama Kota" autofocus />
-                </div>
-                <div class="mb-3">
-                    <label for="nama" class="form-label">Nama Penyakit</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Tulis Nama Penyakit" autofocus />
-                </div>
-                <div class="mb-3">
-                    <label for="nama" class="form-label">Puskesmas</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Tulis Nama Puskesmas" autofocus />
-                </div>
-                <div class="mb-3">
-                    <label for="nama" class="form-label">Waktu</label>
-                    <input type="text" class="form-control" name="nama" placeholder="Tulis Waktu" autofocus />
-                </div>
-               
-                <button type="submit" class="btn btn-danger">Cari</button>
-            </form>
+
+<div class="container-fluid">
+
+    <h1 class="h3 mb-4 text-gray-800">Data Penyakit Page</h1>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Penyakit</th>
+                            <th>Kota</th>
+                            <th>Puskesmas</th>
+                            <th>Jumlah</th>
+                            <th>Tahun</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TBC</td>
+                            <td>JL. Jend Urip Sumoharjo, No. 269, Makasar, Sinrijala, Panakkukang, Makassar City, South
+                                Sulawesi 90232</td>
+                            <td>Puskesmas Tamangapa</td>
+                            <td>
+                                209
+                            </td>
+                            <td>2022</td>
+                            <td>
+                                <a href="#" class="btn btn-primary">Buka</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cacar</td>
+                            <td>JL. Jend Urip Sumoharjo, No. 269, Makasar, Sinrijala, Panakkukang, Makassar City, South
+                                Sulawesi 90232</td>
+                            <td>Puskesmas Tamangapa</td>
+                            <td>
+                                209
+                            </td>
+                            <td>2022</td>
+                            <td>
+                                <a href="#" class="btn btn-primary">Buka</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+
+    <!-- <form>
+        <div class="mb-3 col-lg-5">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Kota</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="mb-3 col-lg-5">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Penyakit</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="mb-3 col-lg-5">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Puskesmas</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="mb-3 col-lg-5">
+            <input type="date" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form> -->
+
 </div>
 
 <?= $this->endSection(); ?>

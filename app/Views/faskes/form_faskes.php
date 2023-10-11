@@ -1,59 +1,44 @@
-<?= $this->extend('layout/template'); ?>
+<?= $this->extend('layout/Faskes/templates'); ?>
+
 <?= $this->section('content'); ?>
-<!-- Daftar Antrian -->
-<div class="container">
-    <div class="row pt-5 d-flex justify-content-center">
-        <div class="col-lg-7 border border-2  border-primary p-5">
-            <form action="" method="POST" autocomplete="off">
-                <h2 class="mx-auto py-3">Pengiriman data Faskes ke PKM </h2>
-                <!-- Form Group: Nama -->
-                <div class="form-group">
-                    <label for="inputNama">Nama Pengirim</label>
-                    <input type="text" class="form-control" id="inputNama" placeholder="Masukkan nama" required autofocus>
-                </div>
 
-                <!-- Form Group: Nama -->
-                <div class="form-group">
-                    <label for="inputFaskes">Nama FASKES</label>
-                    <input type="text" class="form-control" id="inputFaskes" placeholder="Masukkan nama faskes" required>
-                </div>
+<div class="container-fluid">
 
-                <!-- Form Group: Alamat -->
-                <div class="form-group">
-                    <label for="inputAlamat">Alamat</label>
-                    <textarea class="form-control" id="inputAlamat" rows="3" placeholder="Masukkan alamat" required></textarea>
-                </div>
+    <h1 class="h3 mb-4 text-gray-800">Mengirim Informasi Penting ke PKM</h1>
 
-                <div>
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Pilih salah satu untuk mengirim :</option>
-                        <option value="1">Puskesmas Tamangapa</option>
-                        <option value="2">Puskesmas Perintis</option>
-                        <option value="3">Puskesmas Pettarani</option>
-                    </select>
-                </div><br>
-
-                <!-- Form Group: Nama -->
-                <div class="form-group">
-                    <label for="inputLaporan">Nama Laporan</label>
-                    <input type="text" class="form-control" id="inputLaporan" placeholder="Laporan Pasien Bulan Februari 2023" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="pesan">Catatan Tambahan</label>
-                    <textarea class="form-control" id="pesan" rows="4" placeholder="" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="fileInput">Upload laporan (Format PDF saja) :</label>
-                    <input type="file" class="form-control-file" id="fileInput" name="file">
-                </div>
-
-                <!-- Tombol Submit -->
-                <button type="submit" class="btn btn-info">Kirim Laporan</button>
-            </form>
+    <form action="#" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="nama">Nama Pengirim</label>
+            <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Pengirim">
         </div>
-    </div>
+
+        <div class="form-group">
+            <label for="Nama_Faskes">Nama Faskes</label>
+            <input type="text" class="form-control" id="Nama_Faskes" name="Nama_Faskes" placeholder="Nama Faskes">
+        </div>
+
+        <div class="form-group">
+            <label for="alamat">Alamat</label>
+            <textarea class="form-control" id="alamat" name="alamat" rows="6" placeholder="alamat"></textarea>
+        </div>
+
+        <div class="form-group">
+            <select class="form-select">
+                <option selected>Pilih Salah Satu untuk Mengirim</option>
+                <option value="puskesmas_tamangapa">Puskesmas Tamangapa</option>
+                <option value="puskesmas_tamalanrea">Puskesmas Tamalanrea</option>
+                <option value="puskesmas_daya">Puskesmas Daya</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="informasi">Informasi</label>
+            <textarea class="form-control" id="informasi" name="informasi" rows="6" placeholder="Informasi"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
 </div>
 
 <?= $this->endSection(); ?>

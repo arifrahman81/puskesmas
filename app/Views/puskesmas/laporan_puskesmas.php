@@ -1,39 +1,53 @@
-<?= $this->extend('layout/template'); ?>
+<?= $this->extend('layout/Puskesmas/templates'); ?>
+
 <?= $this->section('content'); ?>
-<!-- Daftar Antrian -->
-<div class="container">
-    <div class="row pt-5 d-flex justify-content-center">
-        <div class="col-lg-7 border border-2  border-primary p-5">
-            <form action="" method="POST" autocomplete="off">
-                <h2 class="mx-auto py-3">Masukkan laporan Puskesmas</h2>
-                <!-- Form Group: Nama -->
-                <div class="form-group">
-                    <label for="inputNama">Kota</label>
-                    <input type="text" class="form-control" id="inputNama" placeholder="Masukkan kota anda" required autofocus>
-                </div>
 
-                <!-- Form Group: Nama -->
-                <div class="form-group">
-                    <label for="inputFaskes">Nama Puskesmas</label>
-                    <input type="text" class="form-control" id="inputFaskes" placeholder="Masukkan nama Puskesmas" required>
-                </div>
+<div class="container-fluid">
 
-                <!-- Form Group: Alamat -->
-                <div class="form-group">
-                    <label for="inputAlamat">Judul Laporan</label>
-                    <textarea class="form-control" id="inputAlamat" rows="3" placeholder="Contoh Laporan bulan maret 2023" required></textarea>
-                </div>
+    <h1 class="h3 mb-4 text-gray-800">Laporan Pasien</h1>
 
-                <div class="form-group">
-                    <label for="fileInput">Upload (excel only) :</label>
-                    <input type="file" class="form-control-file" id="fileInput" name="file">
-                </div>
+    <a href="<?= base_url('Puskesmas/t_laporan_puskesmas') ?> " class="btn btn-primary mb-3">Tambah Laporan</a>
 
-                <!-- Tombol Submit -->
-                <button type="submit" class="btn btn-info">Kirim Laporan</button>
-            </form>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No. Laporan</th>
+                            <th>Kota</th>
+                            <th>Nama Puskesmas</th>
+                            <th>Judul Laporan</th>
+                            <th>Lihat Laporan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Makassar</td>
+                            <td>Puskesmas Tamangapa</td>
+                            <td>Laporan 1</td>
+                            <td>
+                                <a href="#" class="btn btn-primary">Buka</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Makassar</td>
+                            <td>Puskesmas Tamalanrea</td>
+                            <td>Laporan 2</td>
+                            <td>
+                                <a href="#" class="btn btn-primary">Buka</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+
+
 </div>
 
 <?= $this->endSection(); ?>

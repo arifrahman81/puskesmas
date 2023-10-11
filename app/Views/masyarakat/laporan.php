@@ -4,12 +4,17 @@
 <div class="container">
     <div class="row pt-5 d-flex justify-content-center">
         <div class="col-lg-7 border border-2  border-primary p-5">
-            <form action="/masyarakat/save" method="POST" autocomplete="off">
-            <?= csrf_field(); ?>
-                <h3 class="mb-5">Laporan Kesehatan</h3>
+            <h3 class="mb-5">Laporan Kesehatan</h3>
+            <?php if (session()->getFlashdata('success')) : ?>
+                <div class="alert alert-primary">
+                    <?= session()->getFlashdata('success') ?>
+                </div>
+            <?php endif; ?>
+            <form action="<?= base_url('masyarakat/save') ?> " method="POST" autocomplete="off">
+                <?= csrf_field(); ?>
                 <div class="mb-3">
-                    <label for="nama" class="form-label">Nama</label>
-                    <input type="text" class="form-control" id="nama" name="nama" required autofocus />
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="name" name="name" required autofocus />
                 </div>
 
                 <div class="mb-3">
@@ -23,26 +28,34 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="tanggal_laporan">Tanggal Pelaporan</label>
-                    <input type="date" class="form-control" id="tanggal_laporan" name="tanggal_laporan" required>
+                    <label for="date">Tanggal Pelaporan</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
                 </div><br>
 
-                <div class="mb-3">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>--Pilih Puskesmas--</option>
-                        <option value="1">Puskesmas Tamangapa</option>
-                        <option value="2">Puskesmas Perintis</option>
-                        <option value="3">Puskesmas Pettarani</option>
+                <div class="form-group">
+                    <select class="form-select" name="Puskesmas" required>
+                        <option selected>Pilih Salah Satu untuk Mengirim</option>
+                        <?php foreach ($puskesmas as $puskesmas) : ?>
+                            <option value="<?= $puskesmas['name'] ?> "><?= $puskesmas['name'] ?> </option>
+                        <?php endforeach ?>
                     </select>
                 </div>
-                
+
                 <label for="laporan" class="form-label">Isi Laporan</label>
                 <div class="mb-3">
                     <textarea class="form-control" placeholder="Tuliskan Laporan Anda" name="laporan" id="laporan" style="height: 100px" required></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-info">Submit</button>
+                <div class="row justify-content-between">
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </div>
+                    <div class="col-2">
+                        <a href="<?= base_url('masyarakat/masyarakat') ?> " class="btn btn-success">Back</a>
+                    </div>
+                </div>
             </form>
+
         </div>
     </div>
 </div>

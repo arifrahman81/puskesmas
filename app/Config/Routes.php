@@ -46,29 +46,38 @@ $routes->get('/Masyarakat/status', 'Masyarakat::status');
 $routes->get('/Masyarakat/daftar_antrian', 'Masyarakat::daftar_antrian');
 
 // Authentications
-$routes->get('/Auth/login_faskes', 'Auth::login_faskes');
-$routes->get('/Auth/login_pkm', 'Auth::login_pkm');
-$routes->get('/Auth/login_dinkes', 'Auth::login_dinkes');
+$routes->get('/Auth/login', 'Auth::login');
+$routes->get('/Auth/process_register', 'Auth::process_register');
+$routes->get('/Auth/register', 'Auth::register');
+$routes->get('/Auth/logout', 'Auth::logout');
+
 
 // Fasilitas Kesehatan
-$routes->get('/Faskes/faskes', 'Faskes::faskes');
+$routes->get('/Faskes/dashboard', 'Faskes::dashboard');
+$routes->get('/Faskes/laporan', 'Faskes::laporan');
 $routes->get('/Faskes/form_faskes', 'Faskes::form_faskes');
-$routes->get('/Faskes/faskes_pkm', 'Faskes::faskes_pkm');
 
 // Puskesmas
-$routes->get('/Puskesmas/puskesmas', 'Puskesmas::puskesmas');
-$routes->get('/Puskesmas/laporan_pkm', 'Puskesmas::laporan_pkm');
+$routes->get('/Puskesmas/dashboard', 'Puskesmas::dashboard');
+$routes->get('/Puskesmas/laporan', 'Puskesmas::laporan');
 $routes->get('/Puskesmas/laporan_puskesmas', 'Puskesmas::laporan_puskesmas');
+$routes->get('/Puskesmas/t_laporan_puskesmas', 'Puskesmas::t_laporan_puskesmas');
+$routes->get('/Puskesmas/blog', 'Puskesmas::blog');
+$routes->get('/Puskesmas/t_blog', 'Puskesmas::t_blog');
 $routes->get('/Puskesmas/update_pkm', 'Puskesmas::update_pkm');
+$routes->get('/Puskesmas/viewLaporan/(:num)', 'Puskesmas::viewLaporan/$1');
 
-// Dinas Kesehatan
-$routes->get('/Dinkes/dinkes', 'Dinkes::dinkes');
+
+
+// Dinkes
+$routes->get('/Dinkes/dashboard', 'Dinkes::dashboard');
 $routes->get('/Dinkes/kondisi_pkm', 'Dinkes::kondisi_pkm');
-$routes->get('/Dinkes/data_penyakit', 'Dinkes::penyakit');
-
-// Admin
-$routes->get('/Admin/admin', 'Admin::admin');
-$routes->get('/Admin/login', 'Admin::login');
+$routes->get('/Dinkes/blog', 'Dinkes::blog');
+$routes->get('/Dinkes/data_penyakit', 'Dinkes::data_penyakit');
+$routes->get('/Dinkes/user', 'Dinkes::user');
+$routes->get('/Dinkes/profile', 'Dinkes::profile');
+$routes->get('/Dinkes/t_blog', 'Dinkes::t_blog');
+$routes->get('/Dinkes/viewKondisiPkm/(:num)', 'Dinkes::viewKondisiPkm/$1');
 
 
 
