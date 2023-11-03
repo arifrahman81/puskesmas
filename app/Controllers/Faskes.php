@@ -25,41 +25,32 @@ class Faskes extends BaseController
     public function saveLaporan()
     {
         $reportModel = new ReportMonthFaskes(); // objek baru dari class Report Month Faskes
-        $file_path = $this->handleFileUpload(); // variabel untuk menghendel penyimpanan file yang di upload ole user
-        $data = [
-            'name' => $this->request->getPost('name'),
-            'name_faskes' => $this->request->getPost('name_faskes'),
-            'address' => $this->request->getPost('address'),
-            'puskesmas' => $this->request->getPost('puskesmas'),
-            'name_laporan' => $this->request->getPost('name_laporan'),
-            'catatan' => $this->request->getPost('catatan'),
-            'file' => $file_path,
-            'date' => date('Y-m-d')
-        ];
+        $file = $this->request->getFile('file');
 
-        $reportModel->save($data);
+        if ($file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            $file->move(WRITEPATH . 'uploads', $newName);
 
-
-        return redirect()->to('Faskes/laporan')->with('success', 'Laporan Berhasil Terkirim');
+            $reportModel->insert([
+                'name' => $this->request->getPost('name'),
+                'name_faskes' => $this->request->getPost('name_faskes'),
+                'address' => $this->request->getPost('address'),
+                'puskesmas' => $this->request->getPost('puskesmas'),
+                'name_laporan' => $this->request->getPost('name_laporan'),
+                'catatan' => $this->request->getPost('catatan'),
+                'file' => $newName,
+                'file_path' => $file->getpath(),
+                'date' => date('Y-m-d')
+            ]);
+            return redirect()->to('Faskes/laporan')->with('success', 'Laporan Berhasil Terkirim');
+        } else {
+            return redirect()->to('Faskes/laporan')->with('error', 'Laporan Gagal Terkirim');
+        }
     }
 
     public function form_faskes(): string
     {
         return view('Faskes/form_faskes');
-    }
-
-    // private function yang menangani file yang di upload oleh user
-    private function handleFileUpload()
-    {
-        $file = $this->request->getFile('file');
-
-        if ($file->isValid() && !$file->hasMoved()) {
-            $newName = $file->getRandomName();
-            $file->move(ROOTPATH . 'public/uploads', $newName);
-            return 'uploads/' . $newName;
-        }
-
-        return null;
     }
 
     // function untuk menghapus data lama dengan rentan waktu 12 bulan

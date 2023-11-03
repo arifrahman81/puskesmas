@@ -10,8 +10,13 @@
                     <?= session()->getFlashdata('success') ?>
                 </div>
             <?php endif; ?>
-            <form action="<?= base_url('masyarakat/save') ?> " method="POST" autocomplete="off">
+
+            <h3>Nomor Laporan Anda : <?= $kode ?> </h3>
+            <p>Simpan/salin Nomor laporan anda</p>
+            <form action="<?= site_url('masyarakat/save') ?> " method="POST" autocomplete="off">
                 <?= csrf_field(); ?>
+                <input type="hidden" class="form-control" id="kode" name="kode" value="<?= $kode; ?>" />
+
                 <div class="mb-3">
                     <label for="name" class="form-label">Nama</label>
                     <input type="text" class="form-control" id="name" name="name" required autofocus />
@@ -26,11 +31,6 @@
                     <label for="no_hp" class="form-label">Nomer Hp/Whatsapp</label>
                     <input type="text" class="form-control" id="no_hp" name="no_hp" required />
                 </div>
-
-                <div class="mb-3">
-                    <label for="date">Tanggal Pelaporan</label>
-                    <input type="date" class="form-control" id="date" name="date" required>
-                </div><br>
 
                 <div class="form-group">
                     <select class="form-select" name="Puskesmas" required>
@@ -47,11 +47,11 @@
                 </div>
 
                 <div class="row justify-content-between">
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-info">Submit</button>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-info btn-sm">Submit</button>
                     </div>
                     <div class="col-2">
-                        <a href="<?= base_url('masyarakat/masyarakat') ?> " class="btn btn-success">Back</a>
+                        <a href="<?= base_url('masyarakat/masyarakat') ?> " class="btn btn-success btn-sm">Back</a>
                     </div>
                 </div>
             </form>

@@ -1,42 +1,61 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
-<!-- Isi halaman -->
-<section class="">
-    <div class="container mt-5 justify-content-center">
-        <div class="row">
-            <div class="col">
-                <h1>Status Laporan Pasien</h1>
-                <?php if (session()->getFlashdata('bisa')) : ?>
-                    <div class="alert alert-success" role="alert">
-                        <?= session()->getFlashdata('bisa'); ?>
-                        <img src="/assets/img/bisa.gif" alt="Logo" height="50">
-                    </div>
-                <?php endif; ?>
-                <table class="table mb-3">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Nomer Laporan</th>
-                            <th scope="col">Tanggal Pelaporan</th>
-                            <th scope="col">Nama Pasien</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1; ?>
-                        <?php foreach ($status as $k) : ?>
-                            <tr>
-                                <th scope="row"><?= $i++; ?></th>
-                                <td><?= $k['tanggal_laporan']; ?></td>
-                                <td><?= $k['nama']; ?></td>
-                                <td><span class="badge badge-warning">Proses</span></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+<div class="container">
+    <div class="row pt-5 d-flex justify-content-center">
+        <div class="col-lg-7 border border-2  border-primary p-5">
+            <h1>Status Laporan Anda</h1>
+            <br>
+
+            <?php if (isset($message)) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= $message; ?>
+                </div>
+                <div class="col-5">
+                    <a href="<?= base_url('masyarakat/laporanMasyarakat') ?> " class="btn btn-success">Buat Laporan</a>
+                </div>
+            <?php else : ?>
+                <?php foreach ($laporan as $laporan) : ?>
+                    <?php if (!empty($laporan)) : ?>
+                        <div class="mb-3">
+                            <label class="form-label fw-5">Nomor Laporan</label>
+                            <input class="form-control" value="<?= $laporan['no_laporan']; ?>" disabled readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-5">Nama</label>
+                            <input class="form-control" value="<?= $laporan['name']; ?>" disabled readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-5">Alamat</label>
+                            <textarea class="form-control" rows="3" disabled readonly><?= $laporan['alamat']; ?></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-5">Laporan</label>
+                            <textarea class="form-control" rows="3" disabled readonly><?= $laporan['laporan']; ?></textarea>
+                        </div>
+
+                        <?php if ($laporan['status'] === 'terkirim') : ?>
+                            <div class="alert alert-info" role="alert">
+                                Status : Laporan Terkirim
+                            </div>
+                        <?php elseif ($laporan['status'] === 'dibaca') : ?>
+                            <div class="alert alert-info" role="alert">
+                                Status : Laporan Telah Dibaca
+                            </div>
+                        <?php elseif ($laporan['status'] === 'ditangani') : ?>
+                            <div class="alert alert-info" role="alert">
+                                Status : Laporan Ditindak lanjuti
+                            </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+                <div class="col-2">
+                    <a href="<?= base_url('masyarakat/masyarakat') ?> " class="btn btn-success">Back</a>
+                </div>
+            <?php endif; ?>
+
         </div>
     </div>
-</section>
+</div>
 
 <?= $this->endSection(); ?>

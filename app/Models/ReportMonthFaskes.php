@@ -18,6 +18,7 @@ class ReportMonthFaskes extends Model
         'name_laporan',
         'catatan',
         'file',
+        'file_path',
         'date'
     ];
 

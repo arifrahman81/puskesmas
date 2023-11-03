@@ -23,9 +23,9 @@
         <br>
 
         <p class="h5 text-black fw-semibold">File Laporan : <?= $data['file'] ?></p>
-        <a href="<?= base_url($downloadUrl) ?>" class="btn btn-success" download>Download
-            File</a>
         <br>
+
+        <a class="btn btn-info" href="/file/download/<?= $data['id']; ?>">Download</a>
 
         <a href="<?= base_url('Puskesmas/laporan') ?> " class="btn btn-primary">Kembali</a>
     </div>

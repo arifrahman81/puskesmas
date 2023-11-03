@@ -44,6 +44,9 @@ $routes->get('/Masyarakat/masyarakat', 'Masyarakat::masyarakat');
 $routes->get('/Masyarakat/laporan', 'Masyarakat::laporanMasyarakat');
 $routes->get('/Masyarakat/status', 'Masyarakat::status');
 $routes->get('/Masyarakat/daftar_antrian', 'Masyarakat::daftar_antrian');
+$routes->get('/Masyarakat/viewCekLaporan', 'Masyarakat::viewCekLaporan');
+$routes->get('/Masyarakat/cekStatusLaporan', 'Masyarakat::cekStatusLaporan');
+
 
 // Authentications
 $routes->get('/Auth/login', 'Auth::login');
@@ -65,7 +68,9 @@ $routes->get('/Puskesmas/t_laporan_puskesmas', 'Puskesmas::t_laporan_puskesmas')
 $routes->get('/Puskesmas/blog', 'Puskesmas::blog');
 $routes->get('/Puskesmas/t_blog', 'Puskesmas::t_blog');
 $routes->get('/Puskesmas/update_pkm', 'Puskesmas::update_pkm');
-$routes->get('/Puskesmas/viewLaporan/(:num)', 'Puskesmas::viewLaporan/$1');
+$routes->get('/Puskesmas/viewLaporanFaskes/(:num)', 'Puskesmas::viewLaporanFaskes/$1');
+$routes->get('/Puskesmas/viewLaporanMasyarakat/(:num)', 'Puskesmas::viewLaporanMasyarakat/$1');
+$routes->get('file/download/(:num)', 'Puskesmas::download/$1');
 
 
 

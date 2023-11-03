@@ -16,6 +16,11 @@ class LaporanMasyarakat extends Migration
                 'auto_increment' => true,
             ],
 
+            'no_laporan' => [
+                'type' => 'VARCHAR',
+                'constraint' => 20,
+            ],
+
             'name' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
@@ -27,10 +32,10 @@ class LaporanMasyarakat extends Migration
 
             'no_hp' => [
                 'type' => 'VARCHAR',
-                'constraint' => 50
+                'constraint' => 20
             ],
 
-            'date' => [
+            'tanggal' => [
                 'type' => 'DATE'
             ],
 
@@ -41,6 +46,12 @@ class LaporanMasyarakat extends Migration
 
             'laporan' => [
                 'type' => 'TEXT'
+            ],
+
+            'status' => [
+                'type' => 'ENUM',
+                'constraint' => ['terkirim', 'dibaca', 'ditangani'],
+                'default' => 'terkirim'
             ]
         ]);
 

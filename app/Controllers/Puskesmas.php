@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\InfoKondisiPkm;
+use App\Models\LaporanMasyarakat;
 use App\Models\ReportMonthFaskes;
 
 
@@ -18,19 +19,46 @@ class Puskesmas extends BaseController
     public function laporan()
     {
         $reportModel = new ReportMonthFaskes();
-        $data['data'] = $reportModel->findAll();
+        $laporanModel = new LaporanMasyarakat();
+        $getReport = $reportModel->findAll();
+        $getLaporan = $laporanModel->findAll();
+        $data = [
+            'report' => $getReport,
+            'laporan' => $getLaporan
+        ];
         return view('Puskesmas/laporan', $data);
     }
 
     // function view untuk melihat detail laporan PKM berdasarkan Id
-    public function viewLaporan($id)
+    public function viewLaporanFaskes($id)
     {
         $reportModel = new ReportMonthFaskes();
         $data['data'] = $reportModel->find($id);
         return view('Puskesmas/viewLaporanFaskes', $data);
     }
 
+    public function viewLaporanMasyarakat($id)
+    {
+        $laporanModel = new LaporanMasyarakat();
+        $data['data'] = $laporanModel->find($id);
+        return view('Puskesmas/viewLaporanMasyarakat', $data);
+    }
 
+    public function download($id)
+    {
+        $reportModel = new ReportMonthFaskes();
+        $file = $reportModel->find($id);
+
+        if ($file) {
+            $file_path = WRITEPATH . 'uploads/' . $file['file'];
+            return $this->response->download($file_path, null);
+        } else {
+            return redirect()->to('/file')->with(
+                'error',
+                'File not found.'
+            );
+        }
+    }
 
     public function laporan_puskesmas()
     {

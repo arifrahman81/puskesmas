@@ -13,7 +13,8 @@
                     <div class="card-body text-center">
                         <i class="fas fa-stethoscope fa-3x mb-3"></i>
                         <h5 class="card-text">Melaporkan kondisi kesehatan di sekitar saya</h5>
-                        <a href="<?= base_url('Masyarakat/laporanMasyarakat'); ?>" class="btn btn-success">Selengkapnya</a>
+                        <a href="<?= base_url('Masyarakat/laporanMasyarakat'); ?>"
+                            class="btn btn-success">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -22,7 +23,7 @@
                     <div class="card-body text-center">
                         <i class="fas fa-stethoscope fa-3x mb-3"></i>
                         <h5 class="card-text">Melihat status pelaporan saya</h5>
-                        <a href="<?= base_url('/Masyarakat/status'); ?>" class="btn btn-success">Selengkapnya</a>
+                        <a href="<?= base_url('masyarakat/viewCekLaporan'); ?>" class="btn btn-success">Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -31,7 +32,8 @@
                     <div class="card-body text-center">
                         <i class="fas fa-stethoscope fa-3x mb-3"></i>
                         <h5 class="card-text">Mendaftar antrian untuk berobat ke puskesmas</h5>
-                        <a href="<?= base_url('/Masyarakat/daftar_antrian'); ?>" class="btn btn-success">Selengkapnya</a>
+                        <a href="<?= base_url('/Masyarakat/daftar_antrian'); ?>"
+                            class="btn btn-success">Selengkapnya</a>
                     </div>
                 </div>
             </div>

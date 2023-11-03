@@ -4,18 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class LaporanMasyarakat extends Model
+class AntrianPasien extends Model
 {
-    protected $table = 'laporanmasyarakat';
+    protected $table = 'daftar_antrian';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-        'no_laporan',
         'name',
+        'tgl_lahir',
         'alamat',
         'no_hp',
-        'tanggal',
-        'Puskesmas',
-        'laporan',
-        'status'
+        'puskesmas',
+        'keluhan',
+        'jam',
+        'nomor_antrian',
     ];
 }

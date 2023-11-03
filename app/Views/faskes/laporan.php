@@ -10,6 +10,10 @@
         <div class="alert alert-primary">
             <?= session()->getFlashdata('success') ?>
         </div>
+    <?php elseif (session()->getFlashdata('error')) : ?>
+        <div class="alert alert-danger">
+            <?= session()->getFlashdata('error') ?>
+        </div>
     <?php endif; ?>
 
     <form action="<?= base_url('Faskes/saveLaporan') ?> " method="POST" enctype="multipart/form-data">
