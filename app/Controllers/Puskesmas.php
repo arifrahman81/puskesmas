@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\InfoKondisiPkm;
 use App\Models\LaporanMasyarakat;
+use App\Models\LaporanPuskesmas;
 use App\Models\ReportMonthFaskes;
 
 
@@ -44,6 +45,20 @@ class Puskesmas extends BaseController
         return view('Puskesmas/viewLaporanMasyarakat', $data);
     }
 
+    public function updateStatus($id)
+    {
+        $laporanModel = new LaporanMasyarakat();
+
+        // Ambil data status yang dikirimkan dari form
+        $newStatus = $this->request->getPost('status');
+
+        // Perbarui status laporan di database
+        $laporanModel->updateStatus($id, $newStatus);
+
+        // Redirect kembali ke halaman lihat laporan
+        return redirect()->to('Puskesmas/viewLaporanMasyarakat/' . $id)->with('success', 'Status Berhasil Diupdate');
+    }
+
     public function download($id)
     {
         $reportModel = new ReportMonthFaskes();
@@ -68,6 +83,32 @@ class Puskesmas extends BaseController
     public function t_laporan_puskesmas()
     {
         return view('Puskesmas/t_laporan_puskesmas');
+    }
+
+    public function proses_tambah_laporan_puskesmas()
+    {
+        $laporanPuskesmas = new LaporanPuskesmas(); // objek baru dari class Report Month Faskes
+        $file = $this->request->getFile('file');
+
+        if ($file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            $file->move(WRITEPATH . 'uploads', $newName);
+
+            $laporanPuskesmas->insert([
+                'name' => $this->request->getPost('name'),
+                'name_faskes' => $this->request->getPost('name_faskes'),
+                'address' => $this->request->getPost('address'),
+                'puskesmas' => $this->request->getPost('puskesmas'),
+                'name_laporan' => $this->request->getPost('name_laporan'),
+                'catatan' => $this->request->getPost('catatan'),
+                'file' => $newName,
+                'file_path' => $file->getpath(),
+                'date' => date('Y-m-d')
+            ]);
+            return redirect()->to('Faskes/laporan')->with('success', 'Laporan Berhasil Terkirim');
+        } else {
+            return redirect()->to('Faskes/laporan')->with('error', 'Laporan Gagal Terkirim');
+        }
     }
 
     public function blog()

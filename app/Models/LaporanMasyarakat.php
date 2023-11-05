@@ -18,4 +18,13 @@ class LaporanMasyarakat extends Model
         'laporan',
         'status'
     ];
+
+    // Fungsi untuk memperbarui status laporan
+    public function updateStatus($id, $status)
+    {
+        $this->where('id', $id)
+            ->set('status', $status)
+            ->update();
+        return true;
+    }
 }
