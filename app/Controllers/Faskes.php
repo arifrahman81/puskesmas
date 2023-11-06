@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserModels;
 use App\Models\ReportMonthFaskes;
+use App\Models\SendInformation;
 
 class Faskes extends BaseController
 {
@@ -13,7 +14,15 @@ class Faskes extends BaseController
         return view('Faskes/dashboard');
     }
 
-    // function view untuk menu laporan fasilitas kesehatan
+    // function view data laporan
+    public function tabel_laporan()
+    {
+        $reportModel = new ReportMonthFaskes();
+        $data['data'] = $reportModel->findAll();
+        return view('faskes/tabel_laporan', $data);
+    }
+
+    // function view untuk form laporan fasilitas kesehatan
     public function laporan(): string
     {
         $userModel = new UserModels();
@@ -24,7 +33,7 @@ class Faskes extends BaseController
     // function untuk menyimpan laporan yang di kirim oleh faskes
     public function saveLaporan()
     {
-        $reportModel = new ReportMonthFaskes(); // objek baru dari class Report Month Faskes
+        $reportModel = new ReportMonthFaskes();
         $file = $this->request->getFile('file');
 
         if ($file->isValid() && !$file->hasMoved()) {
@@ -39,7 +48,6 @@ class Faskes extends BaseController
                 'name_laporan' => $this->request->getPost('name_laporan'),
                 'catatan' => $this->request->getPost('catatan'),
                 'file' => $newName,
-                'file_path' => $file->getpath(),
                 'date' => date('Y-m-d')
             ]);
             return redirect()->to('Faskes/laporan')->with('success', 'Laporan Berhasil Terkirim');
@@ -48,9 +56,45 @@ class Faskes extends BaseController
         }
     }
 
-    public function form_faskes(): string
+    // function untuk melihat detail laporan
+    public function view_laporan($id)
     {
-        return view('Faskes/form_faskes');
+        $reportModel = new ReportMonthFaskes();
+        $data['data'] = $reportModel->find($id);
+        return view('faskes/viewLaporan', $data);
+    }
+
+    // function untuk melihat informasi yang dikirim ke PKM
+    public function view_information()
+    {
+        $modelInformation = new SendInformation();
+        $data['data'] = $modelInformation->findAll();
+        return view('Faskes/view_information', $data);
+    }
+
+    // function form informasi yang akan dikirim ke PKM
+    public function form_information(): string
+    {
+        $userModel = new UserModels();
+        $data['puskesmas'] = $userModel->getPuskesmas();
+        return view('Faskes/form_informasi', $data);
+    }
+
+    // function proses insert data informasi yang akan dikirim ke PKM
+    public function add_information()
+    {
+        $modelInformation = new SendInformation();
+        $tanggal = date('Y-m-d');
+        $data = [
+            'nama' => $this->request->getVar('nama'),
+            'nama_faskes' => $this->request->getVar('nama_faskes'),
+            'alamat' => $this->request->getVar('alamat'),
+            'puskesmas' => $this->request->getVar('puskesmas'),
+            'informasi' => $this->request->getVar('informasi'),
+            'tanggal' => $tanggal,
+        ];
+        $modelInformation->insert($data);
+        return redirect()->to('Faskes/view_information')->with('success', 'Informasi Berhasil dikirim, Terima Kasih');
     }
 
     // function untuk menghapus data lama dengan rentan waktu 12 bulan

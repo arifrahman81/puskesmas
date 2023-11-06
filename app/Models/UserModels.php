@@ -38,4 +38,11 @@ class UserModels extends Model
     {
         return $this->where('role', 'puskes')->findAll();
     }
+
+    public function update_data($id, $data)
+    {
+        $this->set($data);
+        $this->where('id', $id);
+        $this->update();
+    }
 }

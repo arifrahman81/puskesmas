@@ -1,10 +1,12 @@
-<?= $this->extend('layout/Dinkes/templates'); ?>
+<?= $this->extend('layout/Faskes/templates'); ?>
 
 <?= $this->section('content'); ?>
 
 <div class="container-fluid">
 
-    <h1 class="h3 mb-4 text-gray-800">Data Penyakit</h1>
+    <h1 class="h3 mb-4 text-gray-800">Laporan Bulanan Fasilitas Kesehatan</h1>
+
+    <a href="<?= base_url('Faskes/laporan') ?> " class="btn btn-primary mb-3">Tambah Laporan</a>
 
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -13,10 +15,10 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Kota</th>
-                            <th>Puskesmas</th>
-                            <th>Judul Laporan</th>
-                            <th>Isi Laporan</th>
+                            <th>Nama Pengirim</th>
+                            <th>Nama Fasilitas Kesehatan</th>
+                            <th>Nama Laporan</th>
+                            <th>Lihat Laporan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,11 +26,11 @@
                         <?php foreach ($data as $data) : ?>
                             <tr>
                                 <td><?= $no++ ?> </td>
-                                <td><?= $data['kota'] ?> </td>
-                                <td><?= $data['nama_puskesmas'] ?> </td>
-                                <td><?= $data['judul_laporan'] ?> </td>
+                                <td><?= $data['name'] ?> </td>
+                                <td><?= $data['name_faskes'] ?> </td>
+                                <td><?= $data['name_laporan'] ?> </td>
                                 <td>
-                                    <a class="btn btn-info" href="/file/download_laporan_puskesmas/<?= $data['id']; ?>">Download</a>
+                                    <a href="<?= base_url('Faskes/view_laporan/' . $data['id']) ?> " class="btn btn-primary">Buka</a>
                                 </td>
                             </tr>
                         <?php endforeach ?>
@@ -37,6 +39,8 @@
             </div>
         </div>
     </div>
+
+
 </div>
 
 <?= $this->endSection(); ?>

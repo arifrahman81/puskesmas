@@ -7,13 +7,13 @@
     <h1 class="h3 mb-4 text-gray-800">Mengirim Data Faskes ke PKM</h1>
 
     <?php if (session()->getFlashdata('success')) : ?>
-        <div class="alert alert-primary">
-            <?= session()->getFlashdata('success') ?>
-        </div>
+    <div class="alert alert-primary">
+        <?= session()->getFlashdata('success') ?>
+    </div>
     <?php elseif (session()->getFlashdata('error')) : ?>
-        <div class="alert alert-danger">
-            <?= session()->getFlashdata('error') ?>
-        </div>
+    <div class="alert alert-danger">
+        <?= session()->getFlashdata('error') ?>
+    </div>
     <?php endif; ?>
 
     <form action="<?= base_url('Faskes/saveLaporan') ?> " method="POST" enctype="multipart/form-data">
@@ -36,7 +36,7 @@
             <select class="form-select" name="puskesmas" required>
                 <option selected>Pilih Salah Satu untuk Mengirim</option>
                 <?php foreach ($puskesmas as $puskesmas) : ?>
-                    <option value="<?= $puskesmas['name'] ?> "><?= $puskesmas['name'] ?> </option>
+                <option value="<?= $puskesmas['name'] ?> "><?= $puskesmas['name'] ?> </option>
                 <?php endforeach ?>
             </select>
         </div>
@@ -52,7 +52,7 @@
         </div>
 
         <div class="form-group">
-            <label for="file">Upload Laporan (Excel PDF)</label>
+            <label for="file">Upload Laporan (Excel dan PDF)</label>
             <input type="file" class="form-control-file" id="file" name="file">
         </div>
 

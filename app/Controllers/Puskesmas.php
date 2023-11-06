@@ -2,11 +2,12 @@
 
 namespace App\Controllers;
 
+use App\Models\AntrianPasien;
 use App\Models\InfoKondisiPkm;
 use App\Models\LaporanMasyarakat;
 use App\Models\LaporanPuskesmas;
 use App\Models\ReportMonthFaskes;
-
+use App\Models\SendInformation;
 
 class Puskesmas extends BaseController
 {
@@ -38,6 +39,7 @@ class Puskesmas extends BaseController
         return view('Puskesmas/viewLaporanFaskes', $data);
     }
 
+    // function untuk melihat detail laporan masyarakat
     public function viewLaporanMasyarakat($id)
     {
         $laporanModel = new LaporanMasyarakat();
@@ -45,6 +47,7 @@ class Puskesmas extends BaseController
         return view('Puskesmas/viewLaporanMasyarakat', $data);
     }
 
+    // function untuk proses update status laporan masyarakat
     public function updateStatus($id)
     {
         $laporanModel = new LaporanMasyarakat();
@@ -59,6 +62,25 @@ class Puskesmas extends BaseController
         return redirect()->to('Puskesmas/viewLaporanMasyarakat/' . $id)->with('success', 'Status Berhasil Diupdate');
     }
 
+    // function untuk menampilkan daftar antrian pasien
+    public function antrian_pasien()
+    {
+        $antrianPasien = new AntrianPasien();
+        $data['data'] = $antrianPasien->findAll();
+        return view('Puskesmas/viewAntrian', $data);
+    }
+
+    // function untuk menfilter daftar antrian pasien
+    public function getByDate()
+    {
+        $selectedDate = $this->request->getPost('selected_date');
+
+        $antrianPasien = new AntrianPasien();
+        $data['data'] = $antrianPasien->where('tanggal', $selectedDate)->findAll();
+        return view('Puskesmas/viewAntrian', $data);
+    }
+
+    // function untuk download file laporan fasilitas kesehatan
     public function download($id)
     {
         $reportModel = new ReportMonthFaskes();
@@ -75,67 +97,77 @@ class Puskesmas extends BaseController
         }
     }
 
-    public function laporan_puskesmas()
+    // function untuk download file laporan puskesmas
+    public function download_laporan_puskesmas($id)
     {
-        return view('Puskesmas/laporan_puskesmas');
+        $laporanPuskesmas = new LaporanPuskesmas();
+        $file = $laporanPuskesmas->find($id);
+
+        if ($file) {
+            $file_path = WRITEPATH . 'uploads/' . $file['file'];
+            return $this->response->download($file_path, null);
+        } else {
+            return redirect()->to('/file')->with(
+                'error',
+                'File not found.'
+            );
+        }
     }
 
+    // function untuk view daftar laporan puskesmas
+    public function laporan_puskesmas()
+    {
+        $laporanPuskesmas = new LaporanPuskesmas();
+        $data['data'] = $laporanPuskesmas->findAll();
+
+        return view('Puskesmas/laporan_puskesmas', $data);
+    }
+
+    // function untuk form tambah data laporan puskesmas
     public function t_laporan_puskesmas()
     {
         return view('Puskesmas/t_laporan_puskesmas');
     }
 
+    // function proses insert data laporan puskesmas
     public function proses_tambah_laporan_puskesmas()
     {
-        $laporanPuskesmas = new LaporanPuskesmas(); // objek baru dari class Report Month Faskes
+        $laporanPuskesmas = new LaporanPuskesmas();
         $file = $this->request->getFile('file');
-
         if ($file->isValid() && !$file->hasMoved()) {
             $newName = $file->getRandomName();
             $file->move(WRITEPATH . 'uploads', $newName);
 
             $laporanPuskesmas->insert([
-                'name' => $this->request->getPost('name'),
-                'name_faskes' => $this->request->getPost('name_faskes'),
-                'address' => $this->request->getPost('address'),
-                'puskesmas' => $this->request->getPost('puskesmas'),
-                'name_laporan' => $this->request->getPost('name_laporan'),
-                'catatan' => $this->request->getPost('catatan'),
+                'kota' => $this->request->getPost('kota'),
+                'nama_puskesmas' => $this->request->getPost('nama_puskesmas'),
+                'judul_laporan' => $this->request->getPost('judul_laporan'),
                 'file' => $newName,
-                'file_path' => $file->getpath(),
-                'date' => date('Y-m-d')
             ]);
-            return redirect()->to('Faskes/laporan')->with('success', 'Laporan Berhasil Terkirim');
+            return redirect()->to('Puskesmas/laporan_puskesmas')->with('success', 'Laporan Berhasil Terkirim');
         } else {
-            return redirect()->to('Faskes/laporan')->with('error', 'Laporan Gagal Terkirim');
+            return redirect()->to('Puskesmas/t_laporan_puskesmas')->with('error', 'Laporan Gagal Terkirim');
         }
     }
 
-    public function blog()
+    // function untuk menampilkan informasi dari fasilitas kesehatan
+    public function information_faskes()
     {
-        return view('Puskesmas/blog');
+        $sendInformation = new SendInformation();
+        $data['data'] = $sendInformation->findAll();
+        return view('Puskesmas/information_faskes', $data);
     }
 
-    public function t_blog()
+    // function untuk memberikan tanda notifikasi ada informasi baru dari fasilitas kesehatan
+    public function getDataCount()
     {
-        return view('Puskesmas/t_blog');
+        $sendInformation = new SendInformation();
+        $newDataCount = $sendInformation->where('tanggal >', date('Y-m-d', strtotime('-1 day')))->countAllResults();
+
+        return $newDataCount;
     }
 
-    public function saveDataInfoPkm()
-    {
-        $request = \Config\Services::request();
-
-        $name = $request->getPost('name');
-        $title = $request->getPost('title');
-        $info = $request->getPost('info');
-        $date = date('Y-m-d');
-
-        $dataModel = new InfoKondisiPkm();
-        $dataModel->inserData($name, $title, $info, $date);
-
-        return redirect()->to('Puskesmas/t_blog')->with('success', 'Data Berhasil Disimpan');
-    }
-
+    // function untuk menghapus data lama dengan rentan waktu 6 bulan
     public function removeOldData()
     {
         $sixMonthAgo = date('Y-m-d', strtotime('-6 month'));

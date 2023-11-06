@@ -54,13 +54,13 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('Faskes/laporan'); ?> ">
+                <a class="nav-link" href="<?= base_url('Faskes/tabel_laporan'); ?> ">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Laporan</span></a>
+                    <span>Laporan Bulanan Fasilitas Kesehatan</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('Faskes/form_faskes'); ?> ">
+                <a class="nav-link" href="<?= base_url('Faskes/view_information'); ?> ">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Informasi Penting</span></a>
             </li>

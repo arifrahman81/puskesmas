@@ -4,19 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AntrianPasien extends Model
+class SendInformation extends Model
 {
-    protected $table = 'daftar_antrian';
+    protected $table = 'send_information';
     protected $primaryKey = 'id';
     protected $allowedFields = [
-        'name',
-        'tgl_lahir',
+        'nama',
+        'nama_faskes',
         'alamat',
-        'no_hp',
         'puskesmas',
-        'keluhan',
-        'jam',
-        'nomor_antrian',
+        'informasi',
         'tanggal'
     ];
 }

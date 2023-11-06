@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class DaftarAntrian extends Migration
+class SendInformation extends Migration
 {
     public function up()
     {
@@ -16,22 +16,18 @@ class DaftarAntrian extends Migration
                 'auto_increment' => true,
             ],
 
-            'name' => [
+            'nama' => [
                 'type' => 'VARCHAR',
-                'constraint' => 20,
+                'constraint' => 255
             ],
 
-            'tgl_lahir' => [
-                'type' => 'DATE',
+            'nama_faskes' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
             ],
 
             'alamat' => [
                 'type' => 'TEXT',
-            ],
-
-            'no_hp' => [
-                'type' => 'VARCHAR',
-                'constraint' => 20,
             ],
 
             'puskesmas' => [
@@ -39,30 +35,21 @@ class DaftarAntrian extends Migration
                 'constraint' => 255,
             ],
 
-            'keluhan' => [
+            'informasi' => [
                 'type' => 'TEXT',
             ],
 
-            'jam' => [
-                'type' => 'TIME',
-            ],
-
-            'nomor_antrian' => [
-                'type' => 'VARCHAR',
-                'constraint' => 20,
-            ],
-
             'tanggal' => [
-                'type' => 'DATE'
-            ],
+                'type' => 'DATE',
+            ]
         ]);
 
         $this->forge->addKey('id', true);
-        $this->forge->createTable('daftar_antrian');
+        $this->forge->createTable('send_information');
     }
 
     public function down()
     {
-        $this->forge->dropTable('daftar_antrian');
+        $this->forge->dropTable('send_information');
     }
 }

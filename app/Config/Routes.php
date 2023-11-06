@@ -50,39 +50,45 @@ $routes->get('/Masyarakat/cekStatusLaporan', 'Masyarakat::cekStatusLaporan');
 
 // Authentications
 $routes->get('/Auth/login', 'Auth::login');
-$routes->get('/Auth/process_register', 'Auth::process_register');
-$routes->get('/Auth/register', 'Auth::register');
 $routes->get('/Auth/logout', 'Auth::logout');
 
 
 // Fasilitas Kesehatan
 $routes->get('/Faskes/dashboard', 'Faskes::dashboard');
+$routes->get('/Faskes/tabel_laporan', 'Faskes::tabel_laporan');
+$routes->get('/Faskes/view_laporan', 'Faskes::view_laporan');
 $routes->get('/Faskes/laporan', 'Faskes::laporan');
-$routes->get('/Faskes/form_faskes', 'Faskes::form_faskes');
+$routes->get('/Faskes/view_information', 'Faskes::view_information');
+$routes->get('/Faskes/form_information', 'Faskes::form_information');
 
 // Puskesmas
 $routes->get('/Puskesmas/dashboard', 'Puskesmas::dashboard');
 $routes->get('/Puskesmas/laporan', 'Puskesmas::laporan');
 $routes->get('/Puskesmas/laporan_puskesmas', 'Puskesmas::laporan_puskesmas');
 $routes->get('/Puskesmas/t_laporan_puskesmas', 'Puskesmas::t_laporan_puskesmas');
-$routes->get('/Puskesmas/blog', 'Puskesmas::blog');
-$routes->get('/Puskesmas/t_blog', 'Puskesmas::t_blog');
+$routes->get('/Puskesmas/information_faskes', 'Puskesmas::information_faskes');
 $routes->get('/Puskesmas/update_pkm', 'Puskesmas::update_pkm');
 $routes->get('/Puskesmas/viewLaporanFaskes/(:num)', 'Puskesmas::viewLaporanFaskes/$1');
 $routes->get('/Puskesmas/viewLaporanMasyarakat/(:num)', 'Puskesmas::viewLaporanMasyarakat/$1');
 $routes->get('file/download/(:num)', 'Puskesmas::download/$1');
+$routes->get('file/download_laporan_puskesmas/(:num)', 'Puskesmas::download_laporan_puskesmas/$1');
+$routes->get('/Puskesmas/antrian_pasien', 'Puskesmas::antrian_pasien');
+$routes->get('/Puskesmas/fetchData', 'Puskesmas::fetchData');
 
 
 
 // Dinkes
 $routes->get('/Dinkes/dashboard', 'Dinkes::dashboard');
 $routes->get('/Dinkes/kondisi_pkm', 'Dinkes::kondisi_pkm');
-$routes->get('/Dinkes/blog', 'Dinkes::blog');
 $routes->get('/Dinkes/data_penyakit', 'Dinkes::data_penyakit');
 $routes->get('/Dinkes/user', 'Dinkes::user');
 $routes->get('/Dinkes/profile', 'Dinkes::profile');
-$routes->get('/Dinkes/t_blog', 'Dinkes::t_blog');
+$routes->get('file/download_laporan_puskesmas/(:num)', 'Dinkes::download_laporan_puskesmas/$1');
 $routes->get('/Dinkes/viewKondisiPkm/(:num)', 'Dinkes::viewKondisiPkm/$1');
+$routes->get('/Dinkes/t_user', 'Dinkes::t_user');
+$routes->get('/Dinkes/edit_data/(:num)', 'Dinkes::edit_data/$1');
+$routes->get('Dinkes/updateData/(:num)', 'Dinkes::updateData/$1');
+
 
 
 

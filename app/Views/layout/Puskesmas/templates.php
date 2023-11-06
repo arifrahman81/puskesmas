@@ -61,13 +61,15 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('Puskesmas/blog'); ?> ">
+                <a class="nav-link" href="<?= base_url('Puskesmas/information_faskes'); ?> ">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Blog</span></a>
+                    <span>Tabel Informasi Faskes</span>
+                    <div id="notificationBadge" class="badge badge-danger"></div>
+                </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?= base_url(''); ?> ">
+                <a class="nav-link" href="<?= base_url('Puskesmas/antrian_pasien'); ?> ">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Jadwal Antrian Pasien</span></a>
             </li>
@@ -194,7 +196,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
-
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url('assets/sb_admin/vendor/jquery/jquery.min.js'); ?> "></script>
     <script src="<?= base_url('assets/sb_admin/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?> "></script>
@@ -218,6 +219,24 @@
 
 
     <script>
+    function getNewDataCount() {
+        $.ajax({
+            url: "<?php echo base_url('Puskesmas/getDataCount'); ?>",
+            type: "GET",
+            success: function(response) {
+                $('#notificationBadge').text(response); // Mengatur teks badge dengan jumlah data baru
+            },
+            error: function() {
+                console.log("Gagal mengambil jumlah data baru.");
+            }
+        });
+    }
+
+    // Panggil fungsi setiap beberapa detik untuk memperbarui notifikasi badge
+    setInterval(function() {
+        getNewDataCount();
+    }, 5000); // contoh pembaruan setiap 5 detik, bisa disesuaikan
+
     tinymce.init({
         selector: 'textarea',
         plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',

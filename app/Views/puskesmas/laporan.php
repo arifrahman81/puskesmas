@@ -51,6 +51,7 @@
                             <th>Nama</th>
                             <th>Nama Alamat</th>
                             <th>Nomor Hp</th>
+                            <th>Status Laporan</th>
                             <th>Lihat Laporan</th>
                         </tr>
                     </thead>
@@ -63,6 +64,7 @@
                                 <td><?= $laporan['name'] ?> </td>
                                 <td><?= $laporan['alamat'] ?> </td>
                                 <td><?= $laporan['no_hp'] ?> </td>
+                                <td><?= $laporan['status'] ?> </td>
                                 <td>
                                     <a href="<?= base_url('Puskesmas/viewLaporanMasyarakat/' . $laporan['id']) ?> " class="btn btn-primary">Buka</a>
                                 </td>

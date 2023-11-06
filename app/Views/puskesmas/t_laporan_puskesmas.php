@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
 
-    <form action="#" method="POST" enctype="multipart/form-data">
+    <form action="<?= base_url('Puskesmas/proses_tambah_laporan_puskesmas') ?> " method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="Kota">Kota</label>
             <input type="text" class="form-control" id="Kota" name="kota" placeholder="Kota">

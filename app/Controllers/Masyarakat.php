@@ -8,34 +8,32 @@ use App\Models\LaporanMasyarakat;
 
 class Masyarakat extends BaseController
 {
-    protected $laporanModel;
+    // protected $laporanModel;
 
-    public function __construct()
-    {
-        $this->laporanModel = new LaporanMasyarakat();
-    }
-
+    // public function __construct()
+    // {
+    //     $this->laporanModel = new LaporanMasyarakat();
+    // }
+    // function untuk menampilkan halaman masyarakat
     public function masyarakat(): string
     {
         return view('masyarakat/masyarakat');
     }
 
+    // function form laporan masyarakat
     public function laporanMasyarakat()
     {
         $userModel = new UserModels();
         $laporanModel = new LaporanMasyarakat();
         $kode = '';
         $query = $laporanModel->query("SELECT MAX(RIGHT(no_laporan, 3)) AS kode FROM laporanmasyarakat WHERE DATE(tanggal) = CURDATE()")->getResultArray();
-
         if (!empty($query)) {
             $no = ((int) $query[0]['kode']) + 1;
             $kd = sprintf("%03s", $no);
         } else {
             $kd = "001";
         }
-
         $kode = date('ymd') . $kd;
-
         $getDataPuskesmas = $userModel->getPuskesmas();
         $data = [
             'puskesmas' => $getDataPuskesmas,
@@ -44,38 +42,33 @@ class Masyarakat extends BaseController
         return view('masyarakat/laporan',  $data);
     }
 
+    // function proses insert data laporan masyarakat
     public function save()
     {
         $laporanModel = new LaporanMasyarakat();
-
-        $kode = $this->request->getVar('kode');
-        $name = $this->request->getVar('name');
-        $alamat = $this->request->getVar('alamat');
-        $no_hp = $this->request->getVar('no_hp');
         $tanggal = date('Y-m-d');
-        $Puskesmas = $this->request->getVar('Puskesmas');
-        $laporan = $this->request->getVar('laporan');
         $status = 'terkirim';
         $data = [
-            'no_laporan' => $kode,
-            'name' => $name,
-            'alamat' => $alamat,
-            'no_hp' => $no_hp,
+            'no_laporan' => $this->request->getVar('kode'),
+            'name' => $this->request->getVar('name'),
+            'alamat' => $this->request->getVar('alamat'),
+            'no_hp' => $this->request->getVar('no_hp'),
             'tanggal' => $tanggal,
-            'Puskesmas' => $Puskesmas,
-            'laporan' => $laporan,
+            'Puskesmas' => $this->request->getVar('Puskesmas'),
+            'laporan' => $this->request->getVar('laporan'),
             'status' => $status
         ];
-
         $laporanModel->insert($data);
         return redirect()->to('Masyarakat/laporanMasyarakat')->with('success', 'Laporan Anda Berhasil di Kirim, Terima Kasih');
     }
 
+    // function form cek laporan masyarakat
     public function viewCekLaporan()
     {
         return view('Masyarakat/cekStatusLaporan');
     }
 
+    // function proses cek laporan masyarakat
     public function cekStatusLaporan()
     {
         $laporanModel = new LaporanMasyarakat();
@@ -85,42 +78,24 @@ class Masyarakat extends BaseController
         if (empty($data['laporan'])) {
             $data['message'] = 'Nomor Laporan tidak ada. Silahkan mengirim laporan anda';
         }
-
         return view('Masyarakat/status', $data);
     }
 
-
-
-    // public function status(): string
-    // {
-    //     $status = $this->modelMasyarakat->findAll();
-    //     $data = [
-    //         'status' => $status
-    //     ];
-
-    //     return view('masyarakat/status', $data);
-    // }
-
+    // function untuk pendaftaran antian pasien
     public function daftar_antrian(): string
     {
         $userModel = new UserModels();
         $data['puskesmas'] = $userModel->getPuskesmas();
-
         return view('masyarakat/daftar_antrian', $data);
     }
 
+    // function proses pendaftaran antrian pasien
     public function proses_daftar()
     {
-        // Ambil data dari form
-        $name = $this->request->getPost('name');
-        $tgl_lahir = $this->request->getPost('tgl_lahir');
-        $alamat = $this->request->getPost('alamat');
-        $no_hp = $this->request->getPost('no_hp');
-        $puskesmas = $this->request->getPost('puskesmas');
-        $keluhan = $this->request->getPost('keluhan');
-        $jam = $this->request->getPost('jam');
-
         $modelAntrian = new AntrianPasien();
+        $jam = $this->request->getPost('jam');
+        $tanggal = date('Y-m-d');
+
         $countAntrian = $modelAntrian->where('jam', $jam)->countAllResults();
         if ($countAntrian >= 20) {
             // Tampilkan pesan jika sudah penuh
@@ -132,20 +107,17 @@ class Masyarakat extends BaseController
 
             // Masukkan data ke database
             $data = [
-                'name' => $name,
-                'tgl_lahir' => $tgl_lahir,
-                'alamat' => $alamat,
-                'no_hp' => $no_hp,
-                'puskesmas' => $puskesmas,
-                'keluhan' => $keluhan,
+                'name' => $this->request->getPost('name'),
+                'tgl_lahir' => $this->request->getPost('tgl_lahir'),
+                'alamat' => $this->request->getPost('alamat'),
+                'no_hp' => $this->request->getPost('no_hp'),
+                'puskesmas' => $this->request->getPost('puskesmas'),
+                'keluhan' =>  $this->request->getPost('keluhan'),
                 'jam' => $jam,
-                'nomor_antrian' => $nomorAntrian
+                'nomor_antrian' => $nomorAntrian,
+                'tanggal' => $tanggal
             ];
             $modelAntrian->insert($data);
-
-            // Tampilkan nomor antrian kepada pasien
-            // $data['success'] = 'Pendaftaran berhasil. Nomor antrian Anda: ' . $nomorAntrian;
-
             return redirect()->to('Masyarakat/daftar_antrian')->with('success', 'Pendaftaran Berhasil. Nomor Antrian Anda : ' . $nomorAntrian);
         }
     }

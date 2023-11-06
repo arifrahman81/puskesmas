@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\UserModels;
-use App\Models\InfoKondisiPkm;
+use App\Models\LaporanPuskesmas;
 
 class Dinkes extends BaseController
 {
@@ -13,34 +13,29 @@ class Dinkes extends BaseController
         return view('Dinkes/dashboard');
     }
 
-    // function view untuk menu melihat kondissi PKM
-    public function kondisi_pkm()
-    {
-        // objek dari class info Kondisi Pkm
-        $dataModel = new InfoKondisiPkm();
-        // menarik semua data dari tabel database untuk di tampilkan
-        $data['data'] = $dataModel->findAll();
-        return view('Dinkes/kondisi_pkm', $data);
-    }
-
-    // function view untuk melihat detail kondisi pkm yang di pilih berdasarkan id
-    public function viewKondisiPkm($id)
-    {
-        $dataModel = new InfoKondisiPkm();
-        $data['data'] = $dataModel->find($id);
-        return view('Dinkes/viewKondisiPkm', $data);
-    }
-
-    // function view untuk menu blog
-    public function blog()
-    {
-        return view('Dinkes/blog');
-    }
-
     // function view untuk menu melihat data penyakit
     public function data_penyakit()
     {
-        return view('Dinkes/data_penyakit');
+        $laporanPuskesmas = new LaporanPuskesmas();
+        $data['data'] = $laporanPuskesmas->findAll();
+        return view('Dinkes/data_penyakit', $data);
+    }
+
+    // function untuk mendownload file pada data penyakit
+    public function download_laporan_puskesmas($id)
+    {
+        $laporanPuskesmas = new LaporanPuskesmas();
+        $file = $laporanPuskesmas->find($id);
+
+        if ($file) {
+            $file_path = WRITEPATH . 'uploads/' . $file['file'];
+            return $this->response->download($file_path, null);
+        } else {
+            return redirect()->to('/file')->with(
+                'error',
+                'File not found.'
+            );
+        }
     }
 
     // function view untuk menu melihat daftar Puskesmas dan Fasilitas Kesehatan yang terdaftar
@@ -48,19 +43,60 @@ class Dinkes extends BaseController
     {
         $userModel = new UserModels();
         $data['usertable'] = $userModel->getUserByRoles();
-
         return view('Dinkes/user', $data);
+    }
+
+    // function untuk menambah data user
+    public function t_user()
+    {
+        $userModel = new UserModels();
+        $password = $this->request->getVar('password');
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $data = [
+            'name' => $this->request->getVar('name'),
+            'username' => $this->request->getVar('username'),
+            'password' => $hashedPassword,
+            'role' => $this->request->getVar('role'),
+        ];
+        $userModel->insertUser($data);
+        return redirect()->to('Dinkes/user')->with('success', 'User Berhasil Ditambahkan.');
+    }
+
+    // function menampilkan halaman edit data
+    public function edit_data($id)
+    {
+        $userModel = new UserModels();
+        $data['data'] = $userModel->find($id);
+        return view('Dinkes/edit_data', $data);
+    }
+
+    // function untuk mengupdate data
+    public function updateData($id)
+    {
+        $userModel = new UserModels();
+        $password = $this->request->getVar('password');
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $data = [
+            'name' => $this->request->getVar('name'),
+            'username' => $this->request->getVar('username'),
+            'password' => $hashedPassword,
+            'role' => $this->request->getVar('role')
+        ];
+        $userModel->update_data($id, $data);
+        return redirect()->to('Dinkes/user')->with('success', 'Data Berhasil Diubah');
+    }
+
+    // function hapus data user
+    public function hapusData($id)
+    {
+        $userModel = new UserModels();
+        $userModel->delete($id);
+        return redirect()->to('Dinkes/user')->with('success', 'Data berhasil dihapus');
     }
 
     // function view untuk menu melihat data pengguna yang sedang login
     public function profile()
     {
         return view('Dinkes/profile');
-    }
-
-    // function view untuk menambah blog
-    public function t_blog()
-    {
-        return view('Dinkes/t_blog');
     }
 }

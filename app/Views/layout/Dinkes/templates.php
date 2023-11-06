@@ -19,7 +19,9 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/sb_admin/css/sb-admin-2.min.css'); ?> " rel="stylesheet">
     <link href="<?= base_url('assets/sb_admin/vendor/datatables/dataTables.bootstrap4.min.css'); ?> " rel="stylesheet">
@@ -51,18 +53,6 @@
                 <a class="nav-link" href="<?= base_url('Dinkes/dashboard'); ?> ">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('Dinkes/kondisi_pkm'); ?> ">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Mengecek Kondisi PKM</span></a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('Dinkes/blog'); ?> ">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Blog</span></a>
             </li>
 
             <li class="nav-item">
@@ -217,6 +207,20 @@
 
 
     <script>
+    function togglePassword() {
+        var passwordField = document.getElementById("passwordInput");
+        var showPasswordButton = document.getElementById("showPasswordButton");
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            showPasswordButton.textContent = "Sembunyikan Password";
+        } else {
+            passwordField.type = "password";
+            showPasswordButton.textContent = "Tampilkan Password";
+        }
+    }
+
+
     function previewImage(event) {
         const preview = document.getElementById('preview');
         const file = event.target.files[0];
