@@ -14,7 +14,7 @@ class Puskesmas extends BaseController
     // function view untuk dashboard puskesmas
     public function dashboard(): string
     {
-        return view('Puskesmas/dashboard');
+        return view('puskesmas/dashboard');
     }
 
     // function view untuk menu melihat laporan dan kondisi pkm
@@ -28,7 +28,7 @@ class Puskesmas extends BaseController
             'report' => $getReport,
             'laporan' => $getLaporan
         ];
-        return view('Puskesmas/laporan', $data);
+        return view('puskesmas/laporan', $data);
     }
 
     // function view untuk melihat detail laporan PKM berdasarkan Id
@@ -36,7 +36,7 @@ class Puskesmas extends BaseController
     {
         $reportModel = new ReportMonthFaskes();
         $data['data'] = $reportModel->find($id);
-        return view('Puskesmas/viewLaporanFaskes', $data);
+        return view('puskesmas/viewLaporanFaskes', $data);
     }
 
     // function untuk melihat detail laporan masyarakat
@@ -44,7 +44,7 @@ class Puskesmas extends BaseController
     {
         $laporanModel = new LaporanMasyarakat();
         $data['data'] = $laporanModel->find($id);
-        return view('Puskesmas/viewLaporanMasyarakat', $data);
+        return view('puskesmas/viewLaporanMasyarakat', $data);
     }
 
     // function untuk proses update status laporan masyarakat
@@ -59,7 +59,7 @@ class Puskesmas extends BaseController
         $laporanModel->updateStatus($id, $newStatus);
 
         // Redirect kembali ke halaman lihat laporan
-        return redirect()->to('Puskesmas/viewLaporanMasyarakat/' . $id)->with('success', 'Status Berhasil Diupdate');
+        return redirect()->to('puskesmas/viewLaporanMasyarakat/' . $id)->with('success', 'Status Berhasil Diupdate');
     }
 
     // function untuk menampilkan daftar antrian pasien
@@ -67,7 +67,7 @@ class Puskesmas extends BaseController
     {
         $antrianPasien = new AntrianPasien();
         $data['data'] = $antrianPasien->findAll();
-        return view('Puskesmas/viewAntrian', $data);
+        return view('puskesmas/viewAntrian', $data);
     }
 
     // function untuk menfilter daftar antrian pasien
@@ -77,7 +77,7 @@ class Puskesmas extends BaseController
 
         $antrianPasien = new AntrianPasien();
         $data['data'] = $antrianPasien->where('tanggal', $selectedDate)->findAll();
-        return view('Puskesmas/viewAntrian', $data);
+        return view('puskesmas/viewAntrian', $data);
     }
 
     // function untuk download file laporan fasilitas kesehatan
@@ -120,13 +120,13 @@ class Puskesmas extends BaseController
         $laporanPuskesmas = new LaporanPuskesmas();
         $data['data'] = $laporanPuskesmas->findAll();
 
-        return view('Puskesmas/laporan_puskesmas', $data);
+        return view('puskesmas/laporan_puskesmas', $data);
     }
 
     // function untuk form tambah data laporan puskesmas
     public function t_laporan_puskesmas()
     {
-        return view('Puskesmas/t_laporan_puskesmas');
+        return view('puskesmas/t_laporan_puskesmas');
     }
 
     // function proses insert data laporan puskesmas
@@ -144,9 +144,9 @@ class Puskesmas extends BaseController
                 'judul_laporan' => $this->request->getPost('judul_laporan'),
                 'file' => $newName,
             ]);
-            return redirect()->to('Puskesmas/laporan_puskesmas')->with('success', 'Laporan Berhasil Terkirim');
+            return redirect()->to('puskesmas/laporan_puskesmas')->with('success', 'Laporan Berhasil Terkirim');
         } else {
-            return redirect()->to('Puskesmas/t_laporan_puskesmas')->with('error', 'Laporan Gagal Terkirim');
+            return redirect()->to('puskesmas/t_laporan_puskesmas')->with('error', 'Laporan Gagal Terkirim');
         }
     }
 
@@ -155,7 +155,7 @@ class Puskesmas extends BaseController
     {
         $sendInformation = new SendInformation();
         $data['data'] = $sendInformation->findAll();
-        return view('Puskesmas/information_faskes', $data);
+        return view('puskesmas/information_faskes', $data);
     }
 
     // function untuk memberikan tanda notifikasi ada informasi baru dari fasilitas kesehatan

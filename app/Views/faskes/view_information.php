@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
 
-    <h1 class="h3 mb-4 text-gray-800">Informasi yang dikirim ke PKM</h1>
+    <h1 class="h3 mb-4 text-gray-800">Informasi yang dikirim ke Puskesmas</h1>
 
     <a href="<?= base_url('Faskes/form_information') ?> " class="btn btn-primary mb-3">Kirim Informasi</a>
     <?php if (session()->getFlashdata('success')) : ?>

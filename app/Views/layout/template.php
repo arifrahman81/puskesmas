@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaporKES</title>
-    <link rel="icon" type="image/x-icon" href="/assets/img/logo2.png">
+    <link rel="icon" type="image/x-icon" href="dfsdassets/img/logo2.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -94,7 +94,7 @@
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>JL. Jend Urip Sumoharjo, No. 269, Makasar,
                         Sinrijala, Panakkukang, Makassar City, South Sulawesi 90232</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0411453486</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>085756266076</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>wwwlcfcom8@gmail.com</p>
                 </div>
                 <div class="col-lg-3 col-md-6">

@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
 
-    <h1 class="h3 mb-4 text-gray-800">Mengirim Data Faskes ke PKM</h1>
+    <h1 class="h3 mb-4 text-gray-800">Mengirim Data Faskes ke Puskesmas</h1>
 
     <?php if (session()->getFlashdata('success')) : ?>
     <div class="alert alert-primary">
