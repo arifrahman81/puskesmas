@@ -41,7 +41,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('Dinkes/dashboard'); ?> ">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-medkit"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Dinas Kesehatan<sup></sup></div>
             </a>
@@ -58,13 +58,13 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('Dinkes/data_penyakit'); ?> ">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fa-solid fa-disease"></i>
                     <span>Data Penyakit</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('Dinkes/user'); ?> ">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fa-solid fa-layer-group"></i>
                     <span>Daftar Fasilitas Kesehatan</span></a>
             </li>
 

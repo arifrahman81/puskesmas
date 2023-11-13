@@ -11,7 +11,7 @@ class Faskes extends BaseController
     // function view untuk dashboard role fasilitas kesehatan
     public function dashboard(): string
     {
-        return view('Faskes/dashboard');
+        return view('faskes/dashboard');
     }
 
     // function view data laporan
@@ -27,7 +27,7 @@ class Faskes extends BaseController
     {
         $userModel = new UserModels();
         $data['puskesmas'] = $userModel->getPuskesmas();
-        return view('Faskes/laporan', $data);
+        return view('faskes/laporan', $data);
     }
 
     // function untuk menyimpan laporan yang di kirim oleh faskes
@@ -50,9 +50,9 @@ class Faskes extends BaseController
                 'file' => $newName,
                 'date' => date('Y-m-d')
             ]);
-            return redirect()->to('Faskes/laporan')->with('success', 'Laporan Berhasil Terkirim');
+            return redirect()->to('faskes/laporan')->with('success', 'Laporan Berhasil Terkirim');
         } else {
-            return redirect()->to('Faskes/laporan')->with('error', 'Laporan Gagal Terkirim');
+            return redirect()->to('faskes/laporan')->with('error', 'Laporan Gagal Terkirim');
         }
     }
 
@@ -69,7 +69,7 @@ class Faskes extends BaseController
     {
         $modelInformation = new SendInformation();
         $data['data'] = $modelInformation->findAll();
-        return view('Faskes/view_information', $data);
+        return view('faskes/view_information', $data);
     }
 
     // function form informasi yang akan dikirim ke PKM
@@ -77,7 +77,7 @@ class Faskes extends BaseController
     {
         $userModel = new UserModels();
         $data['puskesmas'] = $userModel->getPuskesmas();
-        return view('Faskes/form_informasi', $data);
+        return view('faskes/form_informasi', $data);
     }
 
     // function proses insert data informasi yang akan dikirim ke PKM
@@ -94,7 +94,7 @@ class Faskes extends BaseController
             'tanggal' => $tanggal,
         ];
         $modelInformation->insert($data);
-        return redirect()->to('Faskes/view_information')->with('success', 'Informasi Berhasil dikirim, Terima Kasih');
+        return redirect()->to('faskes/view_information')->with('success', 'Informasi Berhasil dikirim, Terima Kasih');
     }
 
     // function untuk menghapus data lama dengan rentan waktu 12 bulan

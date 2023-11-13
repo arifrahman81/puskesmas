@@ -10,7 +10,7 @@ class Dinkes extends BaseController
     // function view untuk dashboard role Dines kesehatan
     public function dashboard()
     {
-        return view('Dinkes/dashboard');
+        return view('dinkes/dashboard');
     }
 
     // function view untuk menu melihat data penyakit
@@ -18,7 +18,7 @@ class Dinkes extends BaseController
     {
         $laporanPuskesmas = new LaporanPuskesmas();
         $data['data'] = $laporanPuskesmas->findAll();
-        return view('Dinkes/data_penyakit', $data);
+        return view('dinkes/data_penyakit', $data);
     }
 
     // function untuk mendownload file pada data penyakit
@@ -43,7 +43,7 @@ class Dinkes extends BaseController
     {
         $userModel = new UserModels();
         $data['usertable'] = $userModel->getUserByRoles();
-        return view('Dinkes/user', $data);
+        return view('dinkes/user', $data);
     }
 
     // function untuk menambah data user
@@ -59,7 +59,7 @@ class Dinkes extends BaseController
             'role' => $this->request->getVar('role'),
         ];
         $userModel->insertUser($data);
-        return redirect()->to('Dinkes/user')->with('success', 'User Berhasil Ditambahkan.');
+        return redirect()->to('dinkes/user')->with('success', 'User Berhasil Ditambahkan.');
     }
 
     // function menampilkan halaman edit data
@@ -67,7 +67,7 @@ class Dinkes extends BaseController
     {
         $userModel = new UserModels();
         $data['data'] = $userModel->find($id);
-        return view('Dinkes/edit_data', $data);
+        return view('dinkes/edit_data', $data);
     }
 
     // function untuk mengupdate data
@@ -83,7 +83,7 @@ class Dinkes extends BaseController
             'role' => $this->request->getVar('role')
         ];
         $userModel->update_data($id, $data);
-        return redirect()->to('Dinkes/user')->with('success', 'Data Berhasil Diubah');
+        return redirect()->to('dinkes/user')->with('success', 'Data Berhasil Diubah');
     }
 
     // function hapus data user
@@ -91,12 +91,12 @@ class Dinkes extends BaseController
     {
         $userModel = new UserModels();
         $userModel->delete($id);
-        return redirect()->to('Dinkes/user')->with('success', 'Data berhasil dihapus');
+        return redirect()->to('dinkes/user')->with('success', 'Data berhasil dihapus');
     }
 
     // function view untuk menu melihat data pengguna yang sedang login
     public function profile()
     {
-        return view('Dinkes/profile');
+        return view('dinkes/profile');
     }
 }

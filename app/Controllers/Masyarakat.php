@@ -59,13 +59,13 @@ class Masyarakat extends BaseController
             'status' => $status
         ];
         $laporanModel->insert($data);
-        return redirect()->to('Masyarakat/laporanMasyarakat')->with('success', 'Laporan Anda Berhasil di Kirim, Terima Kasih');
+        return redirect()->to('masyarakat/laporanMasyarakat')->with('success', 'Laporan Anda Berhasil di Kirim, Terima Kasih');
     }
 
     // function form cek laporan masyarakat
     public function viewCekLaporan()
     {
-        return view('Masyarakat/cekStatusLaporan');
+        return view('masyarakat/cekStatusLaporan');
     }
 
     // function proses cek laporan masyarakat
@@ -78,7 +78,7 @@ class Masyarakat extends BaseController
         if (empty($data['laporan'])) {
             $data['message'] = 'Nomor Laporan tidak ada. Silahkan mengirim laporan anda';
         }
-        return view('Masyarakat/status', $data);
+        return view('masyarakat/status', $data);
     }
 
     // function untuk pendaftaran antian pasien
@@ -100,7 +100,7 @@ class Masyarakat extends BaseController
         if ($countAntrian >= 20) {
             // Tampilkan pesan jika sudah penuh
             // $data['error'] = 'Maaf, jam berobat sudah penuh. Silakan pilih jam lain.';
-            return redirect()->to('Masyarakat/daftar_antrian')->with('error', 'Maaf, Jam Berobat Sudah Penuh. Silahkan Pilih Jam Lain.');
+            return redirect()->to('masyarakat/daftar_antrian')->with('error', 'Maaf, Jam Berobat Sudah Penuh. Silahkan Pilih Jam Lain.');
         } else {
             // Generate nomor antrian dengan format y-m-d-2digit
             $nomorAntrian = date('ymd-') . sprintf("%02d", $countAntrian + 1);
@@ -118,7 +118,7 @@ class Masyarakat extends BaseController
                 'tanggal' => $tanggal
             ];
             $modelAntrian->insert($data);
-            return redirect()->to('Masyarakat/daftar_antrian')->with('success', 'Pendaftaran Berhasil. Nomor Antrian Anda : ' . $nomorAntrian);
+            return redirect()->to('masyarakat/daftar_antrian')->with('success', 'Pendaftaran Berhasil. Nomor Antrian Anda : ' . $nomorAntrian);
         }
     }
 }

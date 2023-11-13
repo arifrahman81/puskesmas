@@ -16,6 +16,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
         rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
@@ -68,10 +69,9 @@
         <div class="container my-5 py-5">
             <div class="row align-items-center g-5">
                 <div class="text-center">
-                    <h1 class="display-5 text-white animated slideInDown">Layanan Laporan Kesehatan</h1>
+                    <h1 class="display-5 text-white animated slideInDown">Lapor Data Kesehatan</h1>
                     <br>
-                    <h4 class="text-primary animated slideInDown">Temukan layanan kesehatan terbaik untuk
-                        Anda</h4>
+                    <h4 class="text-primary animated slideInDown">Media Komunikasi Kesehatan Antara Pihak Terkait</h4>
                 </div>
             </div>
         </div>
@@ -97,11 +97,11 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>085756266076</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>wwwlcfcom8@gmail.com</p>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <!-- <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
                     <h5 class="text-light fw-normal">Monday - Saturday</h5>
                     <p>08AM - 04PM</p>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="container">

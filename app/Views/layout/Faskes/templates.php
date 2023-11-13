@@ -20,7 +20,9 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+        
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/sb_admin/css/sb-admin-2.min.css'); ?> " rel="stylesheet">
     <link href="<?= base_url('assets/sb_admin/vendor/datatables/dataTables.bootstrap4.min.css'); ?> " rel="stylesheet">
@@ -39,7 +41,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('Faskes/dashboard'); ?> ">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-heartbeat"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Fasilitas Kesehatan<sup></sup></div>
             </a>
@@ -56,13 +58,14 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('Faskes/tabel_laporan'); ?> ">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <!-- <i class="fa-solid fa-inbox"></i> -->
+                <i class="fa-solid fa-inbox"></i>
                     <span>Laporan Bulanan Fasilitas Kesehatan</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('Faskes/view_information'); ?> ">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fa-solid fa-landmark"></i>
                     <span>Informasi Penting</span></a>
             </li>
 
