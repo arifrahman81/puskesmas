@@ -97,23 +97,6 @@ class Puskesmas extends BaseController
         }
     }
 
-    // function untuk download file laporan puskesmas
-    public function download_laporan_puskesmas($id)
-    {
-        $laporanPuskesmas = new LaporanPuskesmas();
-        $file = $laporanPuskesmas->find($id);
-
-        if ($file) {
-            $file_path = WRITEPATH . 'uploads/' . $file['file'];
-            return $this->response->download($file_path, null);
-        } else {
-            return redirect()->to('/file')->with(
-                'error',
-                'File not found.'
-            );
-        }
-    }
-
     // function untuk view daftar laporan puskesmas
     public function laporan_puskesmas()
     {
@@ -121,6 +104,97 @@ class Puskesmas extends BaseController
         $data['data'] = $laporanPuskesmas->findAll();
 
         return view('puskesmas/laporan_puskesmas', $data);
+    }
+
+    // view untuk import data
+    public function importData()
+    {
+        return view('Puskesmas/import_data');
+    }
+
+    // funsi proses import data
+    public function import()
+    {
+        $file_excel = $this->request->getFile('file');
+        $ext = $file_excel->getClientExtension();
+
+        if ($ext == 'xls') {
+            $render = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+        } else {
+            $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        }
+
+        $spreadsheet = $render->load($file_excel);
+        $data = $spreadsheet->getActiveSheet()->toArray();
+
+        $dataExistCount = 0; // Menyimpan jumlah data yang sudah ada
+        foreach ($data as $x => $row) {
+            if ($x == 0) {
+                continue;
+            }
+
+            $nik = $row[5];
+
+            // Pemeriksaan keberadaan data
+            if ($this->isDataExist($nik)) {
+                // Data sudah ada, lewati atau lakukan pembaruan sesuai kebutuhan
+                $dataExistCount++;
+                continue;
+            }
+
+            $tahun = $row[0];
+            $bulan = $row[1];
+            $provinsi = $row[2];
+            $kota = $row[3];
+            $puskesmas = $row[4];
+            // $nik = $row[5];
+            $nama_penderita = $row[6];
+            $umur = $row[7];
+            $jenis_kelamin = $row[8];
+            $nama_wali = $row[9];
+            $alamat = $row[10];
+            $tgl_kunjungan = $row[11];
+            $diagnosa = $row[12];
+            $klinis = $row[13];
+            $laboratorium = $row[14];
+
+            if ($laboratorium === null || $laboratorium === '') {
+                continue;
+            }
+
+            // echo "$tahun<br>";
+            $laporanPuskesmas = new LaporanPuskesmas();
+            $datasimpan = [
+                'tahun' => $tahun,
+                'bulan' => $bulan,
+                'provinsi' => $provinsi,
+                'kota' => $kota,
+                'puskesmas' => $puskesmas,
+                'nik' => $nik,
+                'nama_penderita' => $nama_penderita,
+                'umur' => $umur,
+                'jenis_kelamin' => $jenis_kelamin,
+                'nama_wali' => $nama_wali,
+                'alamat' => $alamat,
+                'tgl_kunjungan' => $tgl_kunjungan,
+                'diagnosa' => $diagnosa,
+                'klinis' => $klinis,
+                'laboratorium' => $laboratorium
+            ];
+            $laporanPuskesmas->insert($datasimpan);
+        }
+        // Menampilkan pesan flash data
+        if ($dataExistCount > 0) {
+            return redirect()->to('Puskesmas/laporan_puskesmas')->with('success', 'Data Berhasil Diimport. Sebanyak ' . $dataExistCount . ' Data Tidak Disimpan Karena Sudah Ada Didatabase');
+        }
+    }
+
+    // Fungsi untuk memeriksa keberadaan data berdasarkan NIK
+    private function isDataExist($nik)
+    {
+        $laporanPuskesmas = new LaporanPuskesmas();
+        $result = $laporanPuskesmas->where('nik', $nik)->first();
+        return ($result !== null);
     }
 
     // function untuk form tambah data laporan puskesmas
@@ -133,21 +207,26 @@ class Puskesmas extends BaseController
     public function proses_tambah_laporan_puskesmas()
     {
         $laporanPuskesmas = new LaporanPuskesmas();
-        $file = $this->request->getFile('file');
-        if ($file->isValid() && !$file->hasMoved()) {
-            $newName = $file->getRandomName();
-            $file->move(WRITEPATH . 'uploads', $newName);
+        $data = [
+            'tahun' => $this->request->getVar('tahun'),
+            'bulan' => $this->request->getVar('bulan'),
+            'provinsi' => $this->request->getVar('provinsi'),
+            'kota' => $this->request->getVar('kota'),
+            'puskesmas' => $this->request->getVar('puskesmas'),
+            'nik' => $this->request->getVar('nik'),
+            'nama_penderita' => $this->request->getVar('nama_penderita'),
+            'umur' => $this->request->getVar('umur'),
+            'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
+            'nama_wali' => $this->request->getVar('nama_wali'),
+            'alamat' => $this->request->getVar('alamat'),
+            'tgl_kunjungan' => $this->request->getVar('tgl_kunjungan'),
+            'diagnosa' => $this->request->getVar('diagnosa'),
+            'klinis' => $this->request->getVar('klinis'),
+            'laboratorium' => $this->request->getVar('laboratorium'),
+        ];
 
-            $laporanPuskesmas->insert([
-                'kota' => $this->request->getPost('kota'),
-                'nama_puskesmas' => $this->request->getPost('nama_puskesmas'),
-                'judul_laporan' => $this->request->getPost('judul_laporan'),
-                'file' => $newName,
-            ]);
-            return redirect()->to('puskesmas/laporan_puskesmas')->with('success', 'Laporan Berhasil Terkirim');
-        } else {
-            return redirect()->to('puskesmas/t_laporan_puskesmas')->with('error', 'Laporan Gagal Terkirim');
-        }
+        $laporanPuskesmas->insert($data);
+        return redirect()->to('Puskesmas/laporan_puskesmas')->with('success', 'Data Berhasil Ditambahkan');
     }
 
     // function untuk menampilkan informasi dari fasilitas kesehatan

@@ -9,9 +9,20 @@ class LaporanPuskesmas extends Model
     protected $table = 'laporan_puskesmas';
     protected $primaryKey = 'id';
     protected $allowedFields = [
+        'tahun',
+        'bulan',
+        'provinsi',
         'kota',
-        'nama_puskesmas',
-        'judul_laporan',
-        'file'
+        'puskesmas',
+        'nik',
+        'nama_penderita',
+        'umur',
+        'jenis_kelamin',
+        'nama_wali',
+        'alamat',
+        'tgl_kunjungan',
+        'diagnosa',
+        'klinis',
+        'laboratorium',
     ];
 }

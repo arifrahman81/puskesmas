@@ -65,6 +65,8 @@ $routes->get('/Faskes/form_information', 'Faskes::form_information');
 $routes->get('/Puskesmas/dashboard', 'Puskesmas::dashboard');
 $routes->get('/Puskesmas/laporan', 'Puskesmas::laporan');
 $routes->get('/Puskesmas/laporan_puskesmas', 'Puskesmas::laporan_puskesmas');
+$routes->get('/Puskesmas/importData', 'Puskesmas::importData');
+$routes->get('/Puskesmas/import', 'Puskesmas::import');
 $routes->get('/Puskesmas/t_laporan_puskesmas', 'Puskesmas::t_laporan_puskesmas');
 $routes->get('/Puskesmas/information_faskes', 'Puskesmas::information_faskes');
 $routes->get('/Puskesmas/update_pkm', 'Puskesmas::update_pkm');

@@ -7,11 +7,13 @@
     <!-- <h1 class="h3 mb-4 text-gray-800">Laporan Pasien</h1> -->
 
     <a href="<?= base_url('Puskesmas/t_laporan_puskesmas') ?> " class="btn btn-primary mb-3">Tambah Laporan</a>
+    <a href="<?= base_url('Puskesmas/importData') ?> " class="btn btn-secondary mb-3">Import Data</a>
     <?php if (session()->getFlashdata('success')) : ?>
         <div class="alert alert-primary">
             <?= session()->getFlashdata('success') ?>
         </div>
     <?php endif; ?>
+
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
@@ -19,10 +21,21 @@
                     <thead>
                         <tr>
                             <th>No.</th>
+                            <th>Tahun</th>
+                            <th>Bulan</th>
+                            <th>Provinsi</th>
                             <th>Kota</th>
-                            <th>Nama Puskesmas</th>
-                            <th>Judul Laporan</th>
-                            <th>Lihat Laporan</th>
+                            <th>Puskesmas</th>
+                            <th>NIK</th>
+                            <th>Nama Penderita</th>
+                            <th>Umur</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Nama Wali</th>
+                            <th>Alamat</th>
+                            <th>Tgl Kunjungan</th>
+                            <th>Diagnosa</th>
+                            <th>Klinis +</th>
+                            <th>Laboratorium +</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,12 +43,21 @@
                         <?php foreach ($data as $data) : ?>
                             <tr>
                                 <td><?= $no++ ?> </td>
+                                <td><?= $data['tahun'] ?> </td>
+                                <td><?= $data['bulan'] ?> </td>
+                                <td><?= $data['provinsi'] ?> </td>
                                 <td><?= $data['kota'] ?> </td>
-                                <td><?= $data['nama_puskesmas'] ?> </td>
-                                <td><?= $data['judul_laporan'] ?> </td>
-                                <td>
-                                    <a class="btn btn-info" href="/file/download_laporan_puskesmas/<?= $data['id']; ?>">Download</a>
-                                </td>
+                                <td><?= $data['puskesmas'] ?> </td>
+                                <td><?= $data['nik'] ?> </td>
+                                <td><?= $data['nama_penderita'] ?> </td>
+                                <td><?= $data['umur'] ?> </td>
+                                <td><?= $data['jenis_kelamin'] ?> </td>
+                                <td><?= $data['nama_wali'] ?> </td>
+                                <td><?= $data['alamat'] ?> </td>
+                                <td><?= $data['tgl_kunjungan'] ?> </td>
+                                <td><?= $data['diagnosa'] ?> </td>
+                                <td><?= $data['klinis'] ?> </td>
+                                <td><?= $data['laboratorium'] ?> </td>
                             </tr>
                         <?php endforeach ?>
 
