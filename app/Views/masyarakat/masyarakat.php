@@ -11,7 +11,7 @@
             <div class="col-md-6 col-lg-3 mb-4">
                 <div class="card h-100">
                     <div class="card-body text-center">
-                        <i class="fas fa-user fa-3x mb-3"></i>
+                        <i class="fas fa-user-doctor fa-3x mb-3"></i>
                         <h5 class="card-text">Melaporkan kondisi kesehatan di sekitar saya</h5>
                         <a href="<?= base_url('Masyarakat/laporanMasyarakat'); ?>"
                             class="btn btn-success">Selengkapnya</a>
