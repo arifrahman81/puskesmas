@@ -10,24 +10,25 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
-                <tr>
-                            <th>No.</th>
-                            <th>Tahun</th>
-                            <th>Bulan</th>
-                            <th>Provinsi</th>
-                            <th>Kota</th>
-                            <th>Puskesmas</th>
-                            <th>NIK</th>
-                            <th>Nama Penderita</th>
-                            <th>Umur</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Nama Wali</th>
-                            <th>Alamat</th>
-                            <th>Tgl Kunjungan</th>
-                            <th>Diagnosa</th>
-                            <th>Klinis +</th>
-                            <th>Laboratorium +</th>
-                        </tr>
+                    <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Tahun</th>
+                        <th>Bulan</th>
+                        <th>Provinsi</th>
+                        <th>Kota</th>
+                        <th>Puskesmas</th>
+                        <th>NIK</th>
+                        <th>Nama Penderita</th>
+                        <th>Umur</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Nama Wali</th>
+                        <th>Alamat</th>
+                        <th>Tgl Kunjungan</th>
+                        <th>Diagnosa</th>
+                        <th>Klinis +</th>
+                        <th>Laboratorium +</th>
+                    </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1 ?>
