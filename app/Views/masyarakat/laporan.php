@@ -4,13 +4,13 @@
 <div class="container">
     <div class="row pt-5 d-flex justify-content-center">
         <div class="col-lg-7 border border-2  border-primary p-5">
-            <h3 class="mb-5">Laporan Kesehatan</h3>
-            <?php if (session()->getFlashdata('success')) : ?>
+        <?php if (session()->getFlashdata('success')) : ?>
                 <div class="alert alert-primary">
                     <?= session()->getFlashdata('success') ?>
+                    <img src="<?= base_url('/assets/img/bisa.gif') ?> " alt="Logo" height="45">
                 </div>
             <?php endif; ?>
-
+            <h3 class="mb-5">Laporan Kesehatan</h3>
             <h3>Nomor Laporan Anda : <?= $kode ?> </h3>
             <p>Simpan/salin Nomor laporan anda</p>
             <form action="<?= site_url('masyarakat/save') ?> " method="POST" autocomplete="off">

@@ -60,12 +60,7 @@
             <div class="row text-center justify-content-center">
                 <div class="col-md-6">
                     <h2>Catatan 1</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero officiis tempore odio, expedita
-                        sequi
-                        harum dolore in quisquam consequuntur odit quidem a laboriosam ipsa velit tempora. Eius ab
-                        laborum
-                        iste expedita adipisci. Nobis, dignissimos dolores nostrum exercitationem laboriosam reiciendis.
-                        Nobis amet sit sequi nesciunt autem necessitatibus at nulla vero ducimus.</p>
+                    <p>Laporkes adalah website untuk memediasi komunikasi dari pihak masyarakat, fasilitas kesehatan, puskesmas dan Dinas Kesehatan. Masyarakat bisa melaporkan kasus-kasus penyakit di sekitarnya kepada puskesmas dan bisa direspon oleh Puskesmas. Fasilitas kesehatan bisa melaporkan data kesehatan bulanan ke Puskesmas dengan mudah. Puskesmas bisa melaporkan data kesehatan bulanan ke Dinas Kesehatan. Dinas Kesehatan bisa melihat laporan data kesehatan dari semua puskesmas di wilayahnya.</p>
                 </div>
             </div>
         </div>

@@ -4,16 +4,18 @@
 <!-- Daftar Antrian -->
 <div class="container">
     <div class="row pt-5 d-flex justify-content-center">
+    <div class="col-lg-7 border border-2  border-primary p-5">
         <?php if (session()->getFlashdata('success')) : ?>
             <div class="alert alert-primary">
                 <?= session()->getFlashdata('success') ?>
+                <img src="<?= base_url('/assets/img/bisa.gif') ?> " alt="Logo" height="45">
             </div>
         <?php elseif (session()->getFlashdata('error')) : ?>
             <div class="alert alert-danger">
                 <?= session()->getFlashdata('error') ?>
             </div>
         <?php endif; ?>
-        <div class="col-lg-7 border border-2  border-primary p-5">
+        
             <form action="<?= site_url('Masyarakat/proses_daftar') ?> " method="POST" autocomplete="off">
                 <!-- Form Group: Nama -->
                 <h3 class="mb-5">Pendaftaran Antrian</h3>
