@@ -52,12 +52,12 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="<?= base_url('/'); ?>">Beranda</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Layanan</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="<?= base_url('Auth/login'); ?>">Login</a>
                     </li>
@@ -85,18 +85,18 @@
             <div class="row g-5 d-flex justify-content-center">
                 <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Title</h4>
-                    <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Beranda</a>
-                    <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Tentang Kami</a>
-                    <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Layanan</a>
-                    <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Kontak</a>
+                    <a class="btn btn-link" href="<?= base_url('/') ?> ">Beranda</a>
+                    <!-- <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Tentang Kami</a>
+                    <a class="btn btn-link" href="<?= base_url('Pages/index') ?> ">Layanan</a> -->
+                    <a class="btn btn-link" href="<?= base_url('/') ?> ">Kontak</a>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <!-- <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>JL. Jend Urip Sumoharjo, No. 269, Makasar,
                         Sinrijala, Panakkukang, Makassar City, South Sulawesi 90232</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>085756266076</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>wwwlcfcom8@gmail.com</p>
-                </div>
+                </div> -->
                 <!-- <div class="col-lg-3 col-md-6">
                     <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
                     <h5 class="text-light fw-normal">Monday - Saturday</h5>

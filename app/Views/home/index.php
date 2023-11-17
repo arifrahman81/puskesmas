@@ -60,7 +60,7 @@
             <div class="row text-justify justify-content-center">
                 <div class="col-md-6">
                     <h2>Catatan 1</h2>
-                    <p>Laporkes adalah website untuk memediasi komunikasi dari pihak masyarakat, fasilitas kesehatan, puskesmas dan Dinas Kesehatan. Masyarakat bisa melaporkan kasus-kasus penyakit di sekitarnya kepada puskesmas dan bisa direspon oleh Puskesmas. Fasilitas kesehatan bisa melaporkan data kesehatan bulanan ke Puskesmas dengan mudah. Puskesmas bisa melaporkan data kesehatan bulanan ke Dinas Kesehatan. Dinas Kesehatan bisa melihat laporan data kesehatan dari semua puskesmas di wilayahnya.</p>
+                    <p>LaporKES adalah website untuk memediasi komunikasi dari pihak masyarakat, fasilitas kesehatan, puskesmas dan Dinas Kesehatan. Masyarakat bisa melaporkan kasus-kasus penyakit di sekitarnya kepada puskesmas dan bisa direspon oleh Puskesmas. Fasilitas kesehatan bisa melaporkan data kesehatan bulanan ke Puskesmas dengan mudah. Puskesmas bisa melaporkan data kesehatan bulanan ke Dinas Kesehatan. Dinas Kesehatan bisa melihat laporan data kesehatan dari semua puskesmas di wilayahnya.</p>
                 </div>
             </div>
         </div>
