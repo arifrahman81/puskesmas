@@ -271,7 +271,10 @@
                             // Set font size to 10 for the entire print document
                             $(win.document.body).find('table').css('font-size', '10.5pt');
                         }
-                    }, "colvis"
+                    }, {
+                        extend: 'colvis',
+                        text: 'Filter Column'
+                    }
                 ]
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
             $('#example2').DataTable({

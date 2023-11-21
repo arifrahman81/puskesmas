@@ -46,6 +46,8 @@ $routes->get('/Masyarakat/status', 'Masyarakat::status');
 $routes->get('/Masyarakat/daftar_antrian', 'Masyarakat::daftar_antrian');
 $routes->get('/Masyarakat/viewCekLaporan', 'Masyarakat::viewCekLaporan');
 $routes->get('/Masyarakat/cekStatusLaporan', 'Masyarakat::cekStatusLaporan');
+$routes->get('/Masyarakat/v_noLaporan/(:segment)', 'Masyarakat::v_noLaporan/$1');
+$routes->get('/Masyarakat/v_noAntrian/(:segment)', 'Masyarakat::v_noAntrian/$1');
 
 
 // Authentications

@@ -9,12 +9,12 @@
                 <?= csrf_field(); ?>
                 <div class="mb-3">
                     <label for="no_laporan" class="form-label">Masukkan Nomor Laporan</label>
-                    <input type="text" class="form-control" id="no_laporan" name="no_laporan" required autofocus />
+                    <input type="text" class="form-control" id="no_laporan" name="no_laporan">
                 </div>
 
                 <div class="row justify-content-between">
-                    <div class="col-4">
-                        <button type="submit" class="btn btn-info">Submit</button>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-info">Cek Status Laporan</button>
                     </div>
                     <div class="col-2">
                         <a href="<?= base_url('masyarakat/masyarakat') ?> " class="btn btn-success">Back</a>

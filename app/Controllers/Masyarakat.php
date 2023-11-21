@@ -24,20 +24,20 @@ class Masyarakat extends BaseController
     public function laporanMasyarakat()
     {
         $userModel = new UserModels();
-        $laporanModel = new LaporanMasyarakat();
-        $kode = '';
-        $query = $laporanModel->query("SELECT MAX(RIGHT(no_laporan, 3)) AS kode FROM laporanmasyarakat WHERE DATE(tanggal) = CURDATE()")->getResultArray();
-        if (!empty($query)) {
-            $no = ((int) $query[0]['kode']) + 1;
-            $kd = sprintf("%03s", $no);
-        } else {
-            $kd = "001";
-        }
-        $kode = date('ymd') . $kd;
+        // $laporanModel = new LaporanMasyarakat();
+        // $kode = '';
+        // $query = $laporanModel->query("SELECT MAX(RIGHT(no_laporan, 3)) AS kode FROM laporanmasyarakat WHERE DATE(tanggal) = CURDATE()")->getResultArray();
+        // if (!empty($query)) {
+        //     $no = ((int) $query[0]['kode']) + 1;
+        //     $kd = sprintf("%03s", $no);
+        // } else {
+        //     $kd = "001";
+        // }
+        // $kode = date('ymd') . $kd;
         $getDataPuskesmas = $userModel->getPuskesmas();
         $data = [
             'puskesmas' => $getDataPuskesmas,
-            'kode' => $kode,
+            // 'kode' => $kode,
         ];
         return view('masyarakat/laporan',  $data);
     }
@@ -46,10 +46,22 @@ class Masyarakat extends BaseController
     public function save()
     {
         $laporanModel = new LaporanMasyarakat();
+
+        // Logika untuk mendapatkan nomor laporan
+        $query = $laporanModel->query("SELECT MAX(RIGHT(no_laporan, 3)) AS kode FROM laporanmasyarakat WHERE DATE(tanggal) = CURDATE()")->getResultArray();
+        if (!empty($query)) {
+            $no = ((int) $query[0]['kode']) + 1;
+            $kd = sprintf("%03s", $no);
+        } else {
+            $kd = "001";
+        }
+        $noLaporan = date('ymd') . $kd;
+
         $tanggal = date('Y-m-d');
         $status = 'terkirim';
         $data = [
-            'no_laporan' => $this->request->getVar('kode'),
+            // 'no_laporan' => $this->request->getVar('kode'),
+            'no_laporan' => $noLaporan,
             'name' => $this->request->getVar('name'),
             'alamat' => $this->request->getVar('alamat'),
             'no_hp' => $this->request->getVar('no_hp'),
@@ -59,7 +71,16 @@ class Masyarakat extends BaseController
             'status' => $status
         ];
         $laporanModel->insert($data);
-        return redirect()->to('masyarakat/laporanMasyarakat')->with('success', 'Laporan Anda Berhasil di Kirim, Terima Kasih');
+        return redirect()->to('masyarakat/v_noLaporan/' . $noLaporan)->with('success', 'Laporan Anda Berhasil di Kirim, Terima Kasih');
+    }
+
+    // function view nomor laporan masyarakat
+    public function v_noLaporan($noLaporan)
+    {
+        $laporanModel = new LaporanMasyarakat();
+        $laporan = $laporanModel->where('no_laporan', $noLaporan)->first();
+
+        return view('masyarakat/v_noLaporan', ['laporan' => $laporan]);
     }
 
     // function form cek laporan masyarakat
@@ -118,7 +139,15 @@ class Masyarakat extends BaseController
                 'tanggal' => $tanggal
             ];
             $modelAntrian->insert($data);
-            return redirect()->to('masyarakat/daftar_antrian')->with('success', 'Pendaftaran Berhasil. Nomor Antrian Anda : ' . $nomorAntrian);
+            return redirect()->to('masyarakat/v_noAntrian/' . $nomorAntrian)->with('success', 'Pendaftaran Berhasil.');
         }
+    }
+
+    // function view nomor antrian
+    public function v_noAntrian($nomorAntrian)
+    {
+        $modelAntrian = new AntrianPasien();
+        $antrian = $modelAntrian->where('nomor_antrian', $nomorAntrian)->first();
+        return view('masyarakat/v_noAntrian', ['antrian' => $antrian]);
     }
 }
