@@ -9,26 +9,27 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
                     <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Tahun</th>
-                        <th>Bulan</th>
-                        <th>Provinsi</th>
-                        <th>Kota</th>
-                        <th>Puskesmas</th>
-                        <th>NIK</th>
-                        <th>Nama Penderita</th>
-                        <th>Umur</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Nama Wali</th>
-                        <th>Alamat</th>
-                        <th>Tgl Kunjungan</th>
-                        <th>Diagnosa</th>
-                        <th>Klinis +</th>
-                        <th>Laboratorium +</th>
-                    </tr>
+                        <tr>
+                            <th>No.</th>
+                            <th>Tahun</th>
+                            <th>Bulan</th>
+                            <th>Provinsi</th>
+                            <th>Kota</th>
+                            <th>Puskesmas</th>
+                            <th>NIK</th>
+                            <th>Nama Penderita</th>
+                            <th>Umur</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Nama Wali</th>
+                            <th>Alamat</th>
+                            <th>Tgl Kunjungan</th>
+                            <th>Diagnosa</th>
+                            <th>Klinis +</th>
+                            <th>Laboratorium +</th>
+                            <th>Action</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1 ?>
@@ -50,6 +51,11 @@
                                 <td><?= $data['diagnosa'] ?> </td>
                                 <td><?= $data['klinis'] ?> </td>
                                 <td><?= $data['laboratorium'] ?> </td>
+                                <td>
+                                    <a href="<?= base_url('Dinkes/hapusDataPenyakit/' . $data['id']) ?>" class="btn btn-danger btn-circle" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
                             </tr>
                         <?php endforeach ?>
 

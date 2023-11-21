@@ -94,6 +94,14 @@ class Dinkes extends BaseController
         return redirect()->to('dinkes/user')->with('success', 'Data berhasil dihapus');
     }
 
+    // function hapus data penyakit
+    public function hapusDataPenyakit($id)
+    {
+        $laporanPuskesmas = new LaporanPuskesmas();
+        $laporanPuskesmas->delete($id);
+        return redirect()->to('dinkes/data_penyakit')->with('success', 'Data berhasil dihapus');
+    }
+
     // function view untuk menu melihat data pengguna yang sedang login
     public function profile()
     {

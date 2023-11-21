@@ -229,6 +229,14 @@ class Puskesmas extends BaseController
         return redirect()->to('Puskesmas/laporan_puskesmas')->with('success', 'Data Berhasil Ditambahkan');
     }
 
+    // function hapus data penyakit
+    public function hapusDataPenyakit($id)
+    {
+        $laporanPuskesmas = new LaporanPuskesmas();
+        $laporanPuskesmas->delete($id);
+        return redirect()->to('Puskesmas/laporan_puskesmas')->with('success', 'Data berhasil dihapus');
+    }
+
     // function untuk menampilkan informasi dari fasilitas kesehatan
     public function information_faskes()
     {
