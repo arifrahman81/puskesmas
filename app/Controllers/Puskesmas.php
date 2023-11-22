@@ -109,7 +109,7 @@ class Puskesmas extends BaseController
     // view untuk import data
     public function importData()
     {
-        return view('Puskesmas/import_data');
+        return view('puskesmas/import_data');
     }
 
     // funsi proses import data
